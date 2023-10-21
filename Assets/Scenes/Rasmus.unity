@@ -1253,7 +1253,7 @@ MonoBehaviour:
     lightIntensity: 1
   - sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
     lightRadius: 20
-    lightIntensity: 10
+    lightIntensity: 2
   _rend: {fileID: 1097692375}
   _light: {fileID: 1097692378}
 --- !u!114 &1097692378
@@ -1357,7 +1357,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.8965548}
+  m_Offset: {x: 0, y: -0.044969603}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -1368,7 +1368,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 2.7931092}
+  m_Size: {x: 1, y: 0.9100599}
   m_EdgeRadius: 0
 --- !u!212 &1302593370
 SpriteRenderer:
