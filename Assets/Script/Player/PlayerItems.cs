@@ -147,6 +147,7 @@ public class PlayerItems : MonoBehaviour
         //pick up
         if (collision.tag == "PickUp")
         {
+            print(collision.name);
             _pickableObjects.Add(collision.transform.parent.gameObject);
         }
         //interactive
