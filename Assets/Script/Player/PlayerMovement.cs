@@ -21,6 +21,7 @@ public class PlayerMovement : MonoBehaviour
 
     //Ladder
     private bool climbable;
+    public bool isClimbing;
 
     //Player States
     private enum playerStates
@@ -84,11 +85,21 @@ public class PlayerMovement : MonoBehaviour
     {
         if (GetComponent<PlayerItems>()._heldObject != null) { return; }
         Vector2 tempVec2 = context.ReadValue<Vector2>();
-        Debug.Log(tempVec2);
-        if (context.performed && climbable)
+
+        if (context.started && climbable)
         {
-            GetComponent<CircleCollider2D>().isTrigger = true;
+            isClimbing = true;
             rb.gravityScale = 0f;
+            GetComponent<CircleCollider2D>().isTrigger = true;
+        }
+        else if (context.canceled && !climbable)
+        {
+            isClimbing = false;
+            rb.gravityScale = 1f; // Restore gravity when climbing is canceled
+        }
+
+        if (isClimbing)
+        {
             rb.velocity = new Vector2(rb.velocity.x, tempVec2.y * climbingSpeed);
         }
     }
@@ -137,14 +148,6 @@ public class PlayerMovement : MonoBehaviour
         transform.localScale = localScale;
     }
 
-    void Falling()
-    {
-        if(!isGrounded)
-        {
-
-        }
-    }
-
     public void Move(InputAction.CallbackContext context)
     {
         moveInput.x = context.ReadValue<Vector2>().x;
@@ -157,7 +160,6 @@ public class PlayerMovement : MonoBehaviour
             if(GetComponent<PlayerItems>()._heldObject == null)
             {
                 climbable = true;
-                Debug.Log("Found a ladder");
             }
         }
     }
@@ -167,9 +169,8 @@ public class PlayerMovement : MonoBehaviour
         if (collision.gameObject.tag == "Ladder")
         {
             climbable = false;
-            rb.gravityScale = 1f;
+            //rb.gravityScale = 1f;
             GetComponent<CircleCollider2D>().isTrigger = false;
-            Debug.Log("Left a ladder");
         }
     }
 }
