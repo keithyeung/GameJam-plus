@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class PlayerItems : MonoBehaviour
 {
+
     //pick ups
     private List<GameObject> _pickableObjects = new List<GameObject>();
-    private GameObject _heldObject;
+    public GameObject _heldObject { get; private set; }
     [SerializeField] private Transform _holdingPoint;
 
     //interactions
@@ -142,7 +143,7 @@ public class PlayerItems : MonoBehaviour
         //interactive
         else if (collision.tag == "Interactive")
         {
-            _interactableObject = collision.transform.parent.gameObject;
+            _interactableObject = collision.gameObject;
         }
     }
 
@@ -159,7 +160,7 @@ public class PlayerItems : MonoBehaviour
         //interactive
         else if (collision.tag == "Interactive")
         {
-            if (_interactableObject == collision.transform.parent.gameObject)
+            if (_interactableObject == collision.gameObject)
             {
                 _interactableObject = null;
             }

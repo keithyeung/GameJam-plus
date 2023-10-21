@@ -2,10 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Water : Interactable
+public class Water : MonoBehaviour
 {
-    public override void Interact()
+
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        
+        if (collision.name == "Plant")
+        {
+            collision.GetComponent<Plant>().Grow();
+            GetComponent<BoxCollider2D>().enabled = false;
+        }
     }
 }
