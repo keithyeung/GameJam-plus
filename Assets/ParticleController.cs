@@ -21,7 +21,7 @@ public class ParticleController : MonoBehaviour
 
     private void Update()
     {
-        
+        isOnGround = GetComponentInParent<PlayerMovement>().isGrounded;
         counter += Time.deltaTime;
 
         if (isOnGround && Mathf.Abs(playerRb.velocity.x) > occurAfterVelocity)
@@ -34,16 +34,20 @@ public class ParticleController : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collider2D collision)
+    public void PlayFallParticles()
+    {
+        fallParticle.Play();
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Ground"))
         {
-            fallParticle.Play();
-            isOnGround = true;
+            PlayFallParticles();
         }
     }
 
-    private void OnCollsionExit2D(Collider2D collision)
+    private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.CompareTag("Ground"))
         {

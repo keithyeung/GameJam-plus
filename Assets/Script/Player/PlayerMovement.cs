@@ -13,7 +13,8 @@ public class PlayerMovement : MonoBehaviour
     public LayerMask groundLayer;
 
     public bool isFacingRight;
-    private bool isGrounded;
+    public bool isGrounded;
+
     private Rigidbody2D rb;
     private Vector2 moveInput;
 
@@ -133,6 +134,14 @@ public class PlayerMovement : MonoBehaviour
         Vector3 localScale = transform.localScale;
         localScale.x *= -1f;
         transform.localScale = localScale;
+    }
+
+    void Falling()
+    {
+        if(!isGrounded)
+        {
+
+        }
     }
 
     public void Move(InputAction.CallbackContext context)
