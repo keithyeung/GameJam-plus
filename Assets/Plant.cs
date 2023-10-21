@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
@@ -20,14 +18,17 @@ public class Plant : MonoBehaviour
     [SerializeField] private Light2D _light;
 
 
+    private void Start()
+    {
+        Grow();
+    }
+
     public void Grow()
     {
         _rend.sprite = _levels[_levelIndex].sprite;
         _light.intensity = _levels[_levelIndex].lightIntensity;
 
         _levelIndex++;
-
-        print("Grow");
     }
 
 }
