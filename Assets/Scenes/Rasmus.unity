@@ -561,21 +561,48 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sounds:
+  - name: SongMain
+    sounds:
+    - name: 1
+      clip: {fileID: 8300000, guid: 015d6ebc0a11c4ee0b9a8ed9924ca212, type: 3}
+      volume: 0.5
+      pitch: 1
+      loop: 1
+      sauce: {fileID: 0}
+    soundIndex: 0
+  - name: SongDrums
+    sounds:
+    - name: 1
+      clip: {fileID: 8300000, guid: b369605d005c9450d9f129f13dad3a0a, type: 3}
+      volume: 0.5
+      pitch: 1
+      loop: 1
+      sauce: {fileID: 0}
+    soundIndex: 0
+  - name: SongFinal
+    sounds:
+    - name: 1
+      clip: {fileID: 8300000, guid: 80c1ef09235324df1beb81c7cf3b5f07, type: 3}
+      volume: 0.5
+      pitch: 1
+      loop: 1
+      sauce: {fileID: 0}
+    soundIndex: 0
   - name: PickUp
     sounds:
-    - name: 2
-      clip: {fileID: 8300000, guid: 21bd2a16bbff9ca4d9af0730cd22f0b8, type: 3}
+    - name: 1
+      clip: {fileID: 8300000, guid: 0e2652cafa5474586a05c4523d6bae22, type: 3}
       volume: 1
-      pitch: 0.5
+      pitch: 1
       loop: 0
       sauce: {fileID: 0}
     soundIndex: 0
   - name: Jump
     sounds:
     - name: 1
-      clip: {fileID: 8300000, guid: 21bd2a16bbff9ca4d9af0730cd22f0b8, type: 3}
+      clip: {fileID: 8300000, guid: accdf4d23f1b9421c9cca98d68f2334e, type: 3}
       volume: 1
-      pitch: 0.5
+      pitch: 1
       loop: 0
       sauce: {fileID: 0}
     soundIndex: 0
@@ -914,7 +941,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1097692372}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: 9fff67c1b1d88ae4987c187a7a45274d, type: 2}
+  m_Material: {fileID: 6200000, guid: 0a1fce9e082677145a3ddae2c8b670cd, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -1577,7 +1604,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 2112668157}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: 9fff67c1b1d88ae4987c187a7a45274d, type: 2}
+  m_Material: {fileID: 6200000, guid: 0a1fce9e082677145a3ddae2c8b670cd, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0

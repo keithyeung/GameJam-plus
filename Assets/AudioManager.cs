@@ -55,7 +55,9 @@ public class AudioManager : MonoBehaviour
                 s.sauce.clip = s.clip; s.sauce.volume = s.volume; s.sauce.pitch = s.pitch; s.sauce.loop = s.loop;
             }
         }
-        
+
+
+        Play("SongMain");
     }
 
 
