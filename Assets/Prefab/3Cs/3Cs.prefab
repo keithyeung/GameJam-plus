@@ -378,6 +378,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GroundCheck
       objectReference: {fileID: 0}
+    - target: {fileID: 4847643291374222509, guid: 99a48b96fc21a2e40bc5095f64d1f326, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5357571678721539608, guid: 99a48b96fc21a2e40bc5095f64d1f326, type: 3}
       propertyPath: m_Name
       value: Player
@@ -433,6 +437,18 @@ PrefabInstance:
     - target: {fileID: 5812645620909501385, guid: 99a48b96fc21a2e40bc5095f64d1f326, type: 3}
       propertyPath: moveSpeed
       value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 8150755404651099901, guid: 99a48b96fc21a2e40bc5095f64d1f326, type: 3}
+      propertyPath: m_ActionEvents.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8150755404651099901, guid: 99a48b96fc21a2e40bc5095f64d1f326, type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_ActionId
+      value: ff38c457-62d6-4a83-83b0-9da6c030a3d5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8150755404651099901, guid: 99a48b96fc21a2e40bc5095f64d1f326, type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_ActionName
+      value: Player/Climb[/Keyboard/w,/Keyboard/s]
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
