@@ -84,13 +84,12 @@ public class PlayerMovement : MonoBehaviour
     {
         if (GetComponent<PlayerItems>()._heldObject != null) { return; }
         Vector2 tempVec2 = context.ReadValue<Vector2>();
-        float climbSpeed = 1f;
         Debug.Log(tempVec2);
         if (context.performed && climbable)
         {
             GetComponent<CircleCollider2D>().isTrigger = true;
             rb.gravityScale = 0f;
-            rb.velocity = new Vector2(rb.velocity.x, tempVec2.y * climbSpeed);
+            rb.velocity = new Vector2(rb.velocity.x, tempVec2.y * climbingSpeed);
         }
     }
 
