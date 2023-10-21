@@ -12,6 +12,16 @@ public class player : MonoBehaviour
     //interactions
     private GameObject _interactableObject;
 
+    //throwing
+    [SerializeField] private GameObject _aim;
+    [SerializeField] private Transform _aimCircle;
+    [SerializeField] private float _aimRotaionSpeed;
+    private Vector3 _aimRotation;
+    private int _rotateDir = 1;
+    [SerializeField] private float _throwSpeed;
+
+    bool _lookingRight;
+
     // Update is called once per frame
     void Update()
     {
@@ -19,8 +29,18 @@ public class player : MonoBehaviour
         float x = Input.GetAxisRaw("Horizontal");
         transform.Translate(Vector3.right * x * 10 * Time.deltaTime);
 
+        if (x == 1)
+        {
+            _lookingRight = true;
+        }
+        else if (x == -1)
+        {
+            _lookingRight = false;
+        }
+
         PickUp();
         Interact();
+        Throw();
     }
 
 
@@ -64,6 +84,64 @@ public class player : MonoBehaviour
         }
     }
 
+
+    private void Throw()
+    {
+        //start
+        if (_heldObject)
+        {
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                _aim.SetActive(true);
+                _aimCircle.rotation = Quaternion.Euler(Vector3.zero);
+                _aimRotation = Vector3.zero;
+            }
+            else if (Input.GetKey(KeyCode.R))
+            {
+                _aimRotation = new Vector3(0, 0, _aimRotation.z + _aimRotaionSpeed * Time.deltaTime * _rotateDir);
+
+                //up or down
+                if (_rotateDir == 1)
+                {
+                    if (_aimRotation.z >= 90)
+                    {
+                        _rotateDir = -1;
+                    }
+                }
+                else if (_rotateDir == -1)
+                {
+                    if (_aimRotation.z <= 0)
+                    {
+                        _rotateDir = 1;
+                    }
+                }
+
+                //direction
+                float dir = (_lookingRight) ? -1 : 1;
+                Vector3 rot = _aimRotation * dir;
+
+                //do it
+                _aimCircle.rotation = Quaternion.Euler(rot);
+            }
+            else if (Input.GetKeyUp(KeyCode.R))
+            {
+                float dir = (_lookingRight) ? 1 : -1;
+
+                _heldObject.transform.SetParent(null);
+                _heldObject.GetComponent<Rigidbody2D>().gravityScale = 1;
+
+                Vector2 throwDir = new Vector2(Mathf.Sin(_aimRotation.z * Mathf.Deg2Rad) * dir, Mathf.Cos(_aimRotation.z * Mathf.Deg2Rad));
+                
+                _heldObject.GetComponent<Rigidbody2D>().velocity = throwDir * _throwSpeed;
+                _heldObject = null;
+
+                _aim.SetActive(false);
+            }
+        }
+        
+
+
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
