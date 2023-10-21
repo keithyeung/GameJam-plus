@@ -957,7 +957,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2169534973690346150, guid: 3a16a5d1a8ac4c04f98a712f02aeebd2, type: 3}
       propertyPath: climbingSpeed
-      value: 10
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2171504520219183809, guid: 3a16a5d1a8ac4c04f98a712f02aeebd2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1384,6 +1384,14 @@ PrefabInstance:
     - target: {fileID: 2680317095734149271, guid: c5fe152066f8e5a4c82b559d72af9e55, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5487478007509400348, guid: c5fe152066f8e5a4c82b559d72af9e55, type: 3}
+      propertyPath: m_Parameters.colorGradient.atime2
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5487478007509400348, guid: c5fe152066f8e5a4c82b559d72af9e55, type: 3}
+      propertyPath: m_Parameters.colorGradient.m_ColorSpace
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 6211963744001296318, guid: c5fe152066f8e5a4c82b559d72af9e55, type: 3}
       propertyPath: m_Name
