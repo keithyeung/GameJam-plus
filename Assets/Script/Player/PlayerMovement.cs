@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
 {
     public float moveSpeed = 5f;
     public float jumpForce = 10f;
+    public float climbingSpeed = 1f;
     public Transform groundCheck;
     public LayerMask groundLayer;
 
@@ -87,6 +88,7 @@ public class PlayerMovement : MonoBehaviour
         Debug.Log(tempVec2);
         if (context.performed && climbable)
         {
+            GetComponent<CircleCollider2D>().isTrigger = true;
             rb.gravityScale = 0f;
             rb.velocity = new Vector2(rb.velocity.x, tempVec2.y * climbSpeed);
         }
@@ -167,6 +169,7 @@ public class PlayerMovement : MonoBehaviour
         {
             climbable = false;
             rb.gravityScale = 1f;
+            GetComponent<CircleCollider2D>().isTrigger = false;
             Debug.Log("Left a ladder");
         }
     }
