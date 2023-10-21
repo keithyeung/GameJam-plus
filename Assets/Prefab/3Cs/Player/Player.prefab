@@ -284,11 +284,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 100
   jumpForce: 8
+  climbingSpeed: 1
   groundCheck: {fileID: 7902540132178668359}
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
   isFacingRight: 0
+  isGrounded: 0
+  isClimbing: 0
 --- !u!58 &2624054280326835225
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -298,7 +301,7 @@ CircleCollider2D:
   m_GameObject: {fileID: 5357571678721539608}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 9fff67c1b1d88ae4987c187a7a45274d, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
