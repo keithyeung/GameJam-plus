@@ -32,6 +32,7 @@ public class PlayerMovement : MonoBehaviour
 
     //Input Map
     private CustomInput m_input = null;
+    
 
     private void Awake()
     {
