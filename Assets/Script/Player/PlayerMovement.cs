@@ -169,7 +169,8 @@ public class PlayerMovement : MonoBehaviour
         if (collision.gameObject.tag == "Ladder")
         {
             climbable = false;
-            //rb.gravityScale = 1f;
+            isClimbing = false;
+            rb.gravityScale = 1f;
             GetComponent<CircleCollider2D>().isTrigger = false;
         }
     }
