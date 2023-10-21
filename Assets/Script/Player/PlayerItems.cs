@@ -145,9 +145,8 @@ public class PlayerItems : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //pick up
-        if (collision.tag == "PickUp")
+        if (collision.tag == "PickUpTrigger")
         {
-            print(collision.name);
             _pickableObjects.Add(collision.transform.parent.gameObject);
         }
         //interactive
@@ -160,7 +159,7 @@ public class PlayerItems : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
         //pick up
-        if (collision.tag == "PickUp")
+        if (collision.tag == "PickUpTrigger")
         {
             if (_pickableObjects.Contains(collision.transform.parent.gameObject))
             {
