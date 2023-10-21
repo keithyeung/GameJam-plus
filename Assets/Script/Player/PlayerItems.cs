@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class PlayerItems : MonoBehaviour
 {
-    //Keith little corners
-    public TrailRenderer trail;
 
     //pick ups
     private List<GameObject> _pickableObjects = new List<GameObject>();
@@ -37,7 +35,6 @@ public class PlayerItems : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.P))
         {
-            trail.enabled = false;
             //pickup
             if (_heldObject == null)
             {
@@ -49,6 +46,7 @@ public class PlayerItems : MonoBehaviour
                     _heldObject.GetComponent<Rigidbody2D>().isKinematic = true;
                     _heldObject.GetComponent<Rigidbody2D>().gravityScale = 0;
                     _heldObject.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+                    _heldObject.GetComponent<TrailRenderer>().enabled = false;
 
                     AudioManager.instance.Play("PickUp");
                 }
@@ -82,12 +80,12 @@ public class PlayerItems : MonoBehaviour
         //start
         if (_heldObject)
         {
-            trail.enabled = true;
             if (Input.GetKeyDown(KeyCode.R))
             {
                 _aim.SetActive(true);
                 _aimCircle.rotation = Quaternion.Euler(Vector3.zero);
                 _aimRotation = Vector3.zero;
+                _heldObject.GetComponent<TrailRenderer>().enabled = true;
             }
             else if (Input.GetKey(KeyCode.R))
             {
