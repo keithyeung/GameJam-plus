@@ -25,30 +25,30 @@ public class LibraScale : MonoBehaviour
         {
             if (_dir < 0)
             {
-                platform1.position = Vector2.MoveTowards(platform1.position, highPos1, Time.deltaTime * _speed * Mathf.Abs(_dir));
-                platform2.position = Vector2.MoveTowards(platform2.position, lowPos2, Time.deltaTime * _speed * Mathf.Abs(_dir));
+                platform1.localPosition = Vector2.MoveTowards(platform1.localPosition, highPos1, Time.deltaTime * _speed * Mathf.Abs(_dir));
+                platform2.localPosition = Vector2.MoveTowards(platform2.localPosition, lowPos2, Time.deltaTime * _speed * Mathf.Abs(_dir));
 
-                float r = ((platform1.position.y-lowPos1.y)/(highPos1.y - lowPos1.y));
+                float r = ((platform1.localPosition.y-lowPos1.y)/(highPos1.y - lowPos1.y));
                 ropeMask1.localPosition = new Vector3(0, r ,0);
-                r = ((platform2.position.y - lowPos2.y) / (highPos2.y - lowPos2.y));
+                r = ((platform2.localPosition.y - lowPos2.y) / (highPos2.y - lowPos2.y));
                 ropeMask2.localPosition = new Vector3(0, r, 0);
 
-                if (platform1.position == highPos1 && platform2.position == lowPos2)
+                if (platform1.localPosition == highPos1 && platform2.localPosition == lowPos2)
                 {
                     _moving = false;
                 }
             }
             else if (_dir > 0)
             {
-                platform1.position = Vector2.MoveTowards(platform1.position, lowPos1, Time.deltaTime * _speed * _dir);
-                platform2.position = Vector2.MoveTowards(platform2.position, highPos2, Time.deltaTime * _speed * _dir);
+                platform1.localPosition = Vector2.MoveTowards(platform1.localPosition, lowPos1, Time.deltaTime * _speed * _dir);
+                platform2.localPosition = Vector2.MoveTowards(platform2.localPosition, highPos2, Time.deltaTime * _speed * _dir);
 
-                float r = ((platform1.position.y - lowPos1.y) / (highPos1.y - lowPos1.y));
+                float r = ((platform1.localPosition.y - lowPos1.y) / (highPos1.y - lowPos1.y));
                 ropeMask1.localPosition = new Vector3(0, r, 0);
-                r = ((platform2.position.y - lowPos2.y) / (highPos2.y - lowPos2.y));
+                r = ((platform2.localPosition.y - lowPos2.y) / (highPos2.y - lowPos2.y));
                 ropeMask2.localPosition = new Vector3(0, r, 0);
 
-                if (platform1.position == lowPos1 && platform2.position == highPos2)
+                if (platform1.localPosition == lowPos1 && platform2.localPosition == highPos2)
                 {
                     _moving = false;
                 }
