@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerItems : MonoBehaviour
 {
+    //Keith little corners
+    public TrailRenderer trail;
 
     //pick ups
     private List<GameObject> _pickableObjects = new List<GameObject>();
@@ -35,6 +37,7 @@ public class PlayerItems : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.P))
         {
+            trail.enabled = false;
             //pickup
             if (_heldObject == null)
             {
@@ -79,6 +82,7 @@ public class PlayerItems : MonoBehaviour
         //start
         if (_heldObject)
         {
+            trail.enabled = true;
             if (Input.GetKeyDown(KeyCode.R))
             {
                 _aim.SetActive(true);
@@ -127,6 +131,7 @@ public class PlayerItems : MonoBehaviour
 
                 _aim.SetActive(false);
             }
+            
         }
         
 
