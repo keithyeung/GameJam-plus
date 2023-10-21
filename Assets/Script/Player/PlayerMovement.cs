@@ -155,12 +155,16 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Ladder")
+        if (collision.gameObject.tag == "Ladder")
         {
             if(GetComponent<PlayerItems>()._heldObject == null)
             {
                 climbable = true;
             }
+        }
+        else if (collision.gameObject.tag == "Worm")
+        {
+            GameManager.instance.Restart();
         }
     }
 

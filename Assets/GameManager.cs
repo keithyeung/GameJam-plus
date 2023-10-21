@@ -4,8 +4,8 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
-
     public GameObject player;
+    public GameObject plant;
 
     private Vector2 _respawnPos;
 

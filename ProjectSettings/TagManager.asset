@@ -9,6 +9,7 @@ TagManager:
   - Interactive
   - Ladder
   - PickUpTrigger
+  - Worm
   layers:
   - Default
   - TransparentFX
