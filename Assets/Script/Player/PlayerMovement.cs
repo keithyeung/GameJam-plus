@@ -70,10 +70,6 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
         IsGrounded();
-        //if(Keyboard.current.wKey.wasPressedThisFrame)
-        //{
-        //    Debug.Log("W is pressed");
-        //}
     }
 
     private void FixedUpdate()
@@ -83,6 +79,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void Climb(InputAction.CallbackContext context)
     {
+        if (GetComponent<PlayerItems>()._heldObject != null) { return; }
         Vector2 tempVec2 = context.ReadValue<Vector2>();
         float climbSpeed = 1f;
         Debug.Log(tempVec2);
@@ -117,6 +114,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void Jump(InputAction.CallbackContext context)
     {
+        if(GetComponent<PlayerItems>()._heldObject != null) { return; }
         if(context.performed && isGrounded)
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
@@ -145,8 +143,11 @@ public class PlayerMovement : MonoBehaviour
     {
         if(collision.gameObject.tag == "Ladder")
         {
-            climbable = true;
-            Debug.Log("Found a ladder");
+            if(GetComponent<PlayerItems>()._heldObject == null)
+            {
+                climbable = true;
+                Debug.Log("Found a ladder");
+            }
         }
     }
 
