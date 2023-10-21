@@ -17,6 +17,19 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 moveInput;
 
+    //Ladder
+    private bool climbable;
+
+    //Player States
+    private enum playerStates
+    {
+        defaultState,
+        Climb,
+        Carrying,
+    }
+
+    playerStates states;
+
     //Input Map
     private CustomInput m_input = null;
 
@@ -24,6 +37,24 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         m_input = new CustomInput();
+        states = playerStates.defaultState;
+    }
+
+    private void StateManager()
+    {
+        switch (states)
+        {
+            case playerStates.defaultState:
+                MovementAndRotation();
+                break;
+            case playerStates.Climb:
+                //Climb();
+                break;
+            case playerStates.Carrying:
+                break;
+            default:
+                break;
+        }
     }
 
     private void OnEnable()
@@ -39,11 +70,27 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
         IsGrounded();
+        //if(Keyboard.current.wKey.wasPressedThisFrame)
+        //{
+        //    Debug.Log("W is pressed");
+        //}
     }
 
     private void FixedUpdate()
     {
-        MovementAndRotation();
+        StateManager();
+    }
+
+    public void Climb(InputAction.CallbackContext context)
+    {
+        Vector2 tempVec2 = context.ReadValue<Vector2>();
+        float climbSpeed = 1f;
+        Debug.Log(tempVec2);
+        if (context.performed && climbable)
+        {
+            rb.gravityScale = 0f;
+            rb.velocity = new Vector2(rb.velocity.x, tempVec2.y * climbSpeed);
+        }
     }
 
     public void IsGrounded()
@@ -92,5 +139,24 @@ public class PlayerMovement : MonoBehaviour
     public void Move(InputAction.CallbackContext context)
     {
         moveInput.x = context.ReadValue<Vector2>().x;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "Ladder")
+        {
+            climbable = true;
+            Debug.Log("Found a ladder");
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Ladder")
+        {
+            climbable = false;
+            rb.gravityScale = 1f;
+            Debug.Log("Left a ladder");
+        }
     }
 }
