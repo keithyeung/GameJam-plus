@@ -38,6 +38,8 @@ public class player : MonoBehaviour
                     _heldObject.transform.localPosition = Vector3.zero;
                     _heldObject.GetComponent<Rigidbody2D>().gravityScale = 0;
                     _heldObject.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+
+                    AudioManager.instance.Play("PickUp");
                 }
             }
             //drop

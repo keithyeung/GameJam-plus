@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [Serializable]
@@ -13,15 +11,24 @@ public class Sound
     public float volume;
     public float pitch;
     public bool loop;
+
+    [HideInInspector] public AudioSource sauce;
+}
+
+[Serializable]
+public class SoundEvent
+{
+    public string name;
+    public Sound[] sounds;
+    [HideInInspector] public int soundIndex = 0;
 }
 
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager instance;
 
-    [SerializeField] private Sound[] _sounds;
+    [SerializeField] private SoundEvent[] _sounds;
 
-    
 
     private void Awake()
     {
@@ -40,15 +47,49 @@ public class AudioManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        foreach (Sound s in _sounds)
+        foreach (SoundEvent e in _sounds)
         {
+            foreach (Sound s in e.sounds)
+            {
+                s.sauce = gameObject.AddComponent<AudioSource>();
+                s.sauce.clip = s.clip; s.sauce.volume = s.volume; s.sauce.pitch = s.pitch; s.sauce.loop = s.loop;
+            }
+        }
+        
+    }
 
+
+
+    public void Play(string name)
+    {
+        foreach (SoundEvent e in _sounds)
+        {
+            if (e.name == name)
+            {
+                Sound s = e.sounds[e.soundIndex];
+                s.sauce.Play();
+
+                e.soundIndex++;
+                if (e.soundIndex == e.sounds.Length) { 
+                    e.soundIndex = 0; 
+                }
+            }
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Stop(string name)
     {
-        
+        foreach (SoundEvent e in _sounds)
+        {
+            if (e.name == name)
+            {
+                foreach (Sound s in e.sounds)
+                {
+                    s.sauce.Stop();
+                }
+            }
+        }
     }
+
+
 }

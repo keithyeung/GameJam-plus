@@ -701,7 +701,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1d23e639d8a33743ac7fcb0112dc5ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sounds: []
+  _sounds:
+  - name: PickUp
+    sounds:
+    - name: 1
+      clip: {fileID: 8300000, guid: 21bd2a16bbff9ca4d9af0730cd22f0b8, type: 3}
+      volume: 1
+      pitch: 1
+      loop: 0
+      sauce: {fileID: 0}
+    - name: 2
+      clip: {fileID: 8300000, guid: 21bd2a16bbff9ca4d9af0730cd22f0b8, type: 3}
+      volume: 1
+      pitch: 0.5
+      loop: 0
+      sauce: {fileID: 0}
+    soundIndex: 0
 --- !u!4 &814702753
 Transform:
   m_ObjectHideFlags: 0
