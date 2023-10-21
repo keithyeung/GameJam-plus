@@ -8,6 +8,7 @@ TagManager:
   - PickUp
   - Interactive
   - Ladder
+  - PickUpTrigger
   layers:
   - Default
   - TransparentFX

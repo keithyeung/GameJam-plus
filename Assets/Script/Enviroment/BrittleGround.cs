@@ -32,7 +32,7 @@ public class BrittleGround : MonoBehaviour
 
         if (objects.Count >= 2)
         {
-            Invoke("Crumble", 2);            
+            Invoke("Crumble", 0.75f);            
         }
     }
 

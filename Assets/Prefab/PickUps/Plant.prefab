@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 4795693786163745791}
   m_Layer: 9
   m_Name: Trigger
-  m_TagString: PickUp
+  m_TagString: PickUpTrigger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
