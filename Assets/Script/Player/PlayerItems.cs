@@ -51,7 +51,7 @@ public class PlayerItems : MonoBehaviour
                         _heldObject.GetComponent<TrailRenderer>().enabled = false;
                     }
 
-                    AudioManager.instance.Play("PickUp");
+                    //AudioManager.instance.Play("PickUp");
                 }
             }
             //drop
