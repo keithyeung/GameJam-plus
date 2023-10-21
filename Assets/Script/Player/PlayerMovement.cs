@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
     public Transform groundCheck;
     public LayerMask groundLayer;
 
-    private bool isFacingRight;
+    public bool isFacingRight;
     private bool isGrounded;
     private Rigidbody2D rb;
     private Vector2 moveInput;

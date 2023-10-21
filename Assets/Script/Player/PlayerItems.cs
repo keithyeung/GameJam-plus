@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class player : MonoBehaviour
+public class PlayerItems : MonoBehaviour
 {
     //pick ups
     private List<GameObject> _pickableObjects = new List<GameObject>();
@@ -20,24 +20,10 @@ public class player : MonoBehaviour
     private int _rotateDir = 1;
     [SerializeField] private float _throwSpeed;
 
-    bool _lookingRight;
 
     // Update is called once per frame
     void Update()
     {
-        //fake movement
-        float x = Input.GetAxisRaw("Horizontal");
-        transform.Translate(Vector3.right * x * 10 * Time.deltaTime);
-
-        if (x == 1)
-        {
-            _lookingRight = true;
-        }
-        else if (x == -1)
-        {
-            _lookingRight = false;
-        }
-
         PickUp();
         Interact();
         Throw();
@@ -56,6 +42,7 @@ public class player : MonoBehaviour
                     _heldObject = _pickableObjects[0];
                     _heldObject.transform.SetParent(_holdingPoint);
                     _heldObject.transform.localPosition = Vector3.zero;
+                    _heldObject.GetComponent<Rigidbody2D>().isKinematic = true;
                     _heldObject.GetComponent<Rigidbody2D>().gravityScale = 0;
                     _heldObject.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
 
@@ -67,6 +54,7 @@ public class player : MonoBehaviour
             {
                 _heldObject.transform.SetParent(null);
                 _heldObject.GetComponent<Rigidbody2D>().gravityScale = 1;
+                _heldObject.GetComponent<Rigidbody2D>().isKinematic = false;
                 _heldObject = null;
             }
 
@@ -117,7 +105,7 @@ public class player : MonoBehaviour
                 }
 
                 //direction
-                float dir = (_lookingRight) ? -1 : 1;
+                float dir = (GetComponent<PlayerMovement>().isFacingRight) ? -1 : 1;
                 Vector3 rot = _aimRotation * dir;
 
                 //do it
@@ -125,10 +113,11 @@ public class player : MonoBehaviour
             }
             else if (Input.GetKeyUp(KeyCode.R))
             {
-                float dir = (_lookingRight) ? 1 : -1;
+                float dir = (GetComponent<PlayerMovement>().isFacingRight) ? 1 : -1;
 
                 _heldObject.transform.SetParent(null);
                 _heldObject.GetComponent<Rigidbody2D>().gravityScale = 1;
+                _heldObject.GetComponent<Rigidbody2D>().isKinematic = false;
 
                 Vector2 throwDir = new Vector2(Mathf.Sin(_aimRotation.z * Mathf.Deg2Rad) * dir, Mathf.Cos(_aimRotation.z * Mathf.Deg2Rad));
                 
@@ -160,14 +149,20 @@ public class player : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
         //pick up
-        if (_pickableObjects.Contains(collision.transform.parent.gameObject))
+        if (collision.tag == "PickUp")
         {
-            _pickableObjects.Remove(collision.transform.parent.gameObject);
+            if (_pickableObjects.Contains(collision.transform.parent.gameObject))
+            {
+                _pickableObjects.Remove(collision.transform.parent.gameObject);
+            }
         }
         //interactive
-        else if (_interactableObject == collision.transform.parent.gameObject)
+        else if (collision.tag == "Interactive")
         {
-            _interactableObject = null;
+            if (_interactableObject == collision.transform.parent.gameObject)
+            {
+                _interactableObject = null;
+            }
         }
     }
 }
