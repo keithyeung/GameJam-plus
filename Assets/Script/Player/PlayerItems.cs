@@ -46,7 +46,10 @@ public class PlayerItems : MonoBehaviour
                     _heldObject.GetComponent<Rigidbody2D>().isKinematic = true;
                     _heldObject.GetComponent<Rigidbody2D>().gravityScale = 0;
                     _heldObject.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
-                    _heldObject.GetComponent<TrailRenderer>().enabled = false;
+                    if (_heldObject.GetComponent<TrailRenderer>() != null) // Keith trying to deactivate the trail
+                    {
+                        _heldObject.GetComponent<TrailRenderer>().enabled = false;
+                    }
 
                     AudioManager.instance.Play("PickUp");
                 }
@@ -85,7 +88,6 @@ public class PlayerItems : MonoBehaviour
                 _aim.SetActive(true);
                 _aimCircle.rotation = Quaternion.Euler(Vector3.zero);
                 _aimRotation = Vector3.zero;
-                _heldObject.GetComponent<TrailRenderer>().enabled = true;
             }
             else if (Input.GetKey(KeyCode.R))
             {
@@ -125,6 +127,10 @@ public class PlayerItems : MonoBehaviour
                 Vector2 throwDir = new Vector2(Mathf.Sin(_aimRotation.z * Mathf.Deg2Rad) * dir, Mathf.Cos(_aimRotation.z * Mathf.Deg2Rad));
                 
                 _heldObject.GetComponent<Rigidbody2D>().velocity = throwDir * _throwSpeed;
+                if(_heldObject.GetComponent<TrailRenderer>() != null) // Keith trying to activate the trail
+                {
+                    _heldObject.GetComponent<TrailRenderer>().enabled = true;
+                }
                 _heldObject = null;
 
                 _aim.SetActive(false);
