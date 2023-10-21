@@ -38,27 +38,30 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+        IsGrounded();
+        MovementAndRotation();
+    }
+
+    public void IsGrounded()
+    {
         // Check if the player is grounded
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
+    }
 
+    public void MovementAndRotation()
+    {
         // Apply movement
         float moveX = moveInput.x * moveSpeed * Time.deltaTime;
         rb.velocity = new Vector2(moveX, rb.velocity.y);
 
-        if(!isFacingRight && moveInput.x > 0f)
+        if (!isFacingRight && moveInput.x > 0f)
         {
             Flip();
         }
-        else if(isFacingRight && moveInput.x < 0f)
+        else if (isFacingRight && moveInput.x < 0f)
         {
             Flip();
         }
-
-        // Jumping
-        //if (isGrounded && Keyboard.current.spaceKey.wasPressedThisFrame)
-        //{
-        //    rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
-        //}
     }
 
     public void Jump(InputAction.CallbackContext context)
