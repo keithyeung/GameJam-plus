@@ -12,12 +12,6 @@ EditorBuildSettings:
     path: Assets/Scenes/StartMenu.unity
     guid: 776aa1d54a024fd4d946aae59422aff7
   - enabled: 1
-    path: Assets/Scenes/Keith.unity
-    guid: bc4df4323596d4344ab66319ae1a29c7
-  - enabled: 0
     path: Assets/Scenes/Main Scene.unity
     guid: 17092c203ec900c4998c962757e82222
-  - enabled: 0
-    path: Assets/Scenes/Rasmus.unity
-    guid: aa2a2d05237d8864dbdba82902a3a747
   m_configObjects: {}
