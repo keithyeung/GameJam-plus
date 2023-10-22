@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Water : MonoBehaviour
@@ -7,6 +5,7 @@ public class Water : MonoBehaviour
     [SerializeField] private Transform _spawnPoint;
 
     private bool no;
+    public int growth;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -17,7 +16,7 @@ public class Water : MonoBehaviour
             if (!no)
             {
                 GameManager.instance.Checkpoint(_spawnPoint.position);
-                collision.GetComponent<Plant>().Grow();
+                collision.GetComponent<Plant>().Grow(growth);
                 no = true;
             }
 

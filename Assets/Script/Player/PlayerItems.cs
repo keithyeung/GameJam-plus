@@ -31,8 +31,9 @@ public class PlayerItems : MonoBehaviour
     }
 
 
-    private void Reset()
+    public void Restart()
     {
+        print("why");
         _heldObject.transform.SetParent(null);
         _heldObject.GetComponent<Rigidbody2D>().gravityScale = 1;
         _heldObject.GetComponent<Rigidbody2D>().isKinematic = false;
