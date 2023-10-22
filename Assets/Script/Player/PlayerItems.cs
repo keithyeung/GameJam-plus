@@ -51,7 +51,7 @@ public class PlayerItems : MonoBehaviour
                         _heldObject.GetComponent<TrailRenderer>().enabled = false;
                     }
 
-                    //AudioManager.instance.Play("PickUp");
+                    AudioManager.instance.Play("PickUp");
                 }
             }
             //drop
@@ -61,6 +61,10 @@ public class PlayerItems : MonoBehaviour
                 _heldObject.GetComponent<Rigidbody2D>().gravityScale = 1;
                 _heldObject.GetComponent<Rigidbody2D>().isKinematic = false;
                 _heldObject = null;
+
+                _aim.SetActive(false);
+
+                AudioManager.instance.Play("Drop");
             }
 
         }
@@ -134,6 +138,8 @@ public class PlayerItems : MonoBehaviour
                 _heldObject = null;
 
                 _aim.SetActive(false);
+
+                AudioManager.instance.Play("Throw");
             }
             
         }

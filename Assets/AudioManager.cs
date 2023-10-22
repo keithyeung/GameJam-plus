@@ -42,11 +42,7 @@ public class AudioManager : MonoBehaviour
             instance = this;
             DontDestroyOnLoad(gameObject);
         }
-    }
 
-    // Start is called before the first frame update
-    void Start()
-    {
         foreach (SoundEvent e in _sounds)
         {
             foreach (Sound s in e.sounds)
@@ -55,9 +51,13 @@ public class AudioManager : MonoBehaviour
                 s.sauce.clip = s.clip; s.sauce.volume = s.volume; s.sauce.pitch = s.pitch; s.sauce.loop = s.loop;
             }
         }
+    }
 
+    void Start()
+    {
 
         Play("SongMain");
+        Play("Rain");
     }
 
 

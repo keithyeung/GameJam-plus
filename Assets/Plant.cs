@@ -29,6 +29,8 @@ public class Plant : MonoBehaviour
         _light.intensity = _levels[_levelIndex].lightIntensity;
 
         _levelIndex++;
+
+        AudioManager.instance.Play("NewHead");
     }
 
 
@@ -38,11 +40,15 @@ public class Plant : MonoBehaviour
         {
             if (name == "Plant")
             {
+                AudioManager.instance.Play("PlantDeath");
                 GameManager.instance.Restart();
             }
             else
             {
                 gameObject.SetActive(false);
+
+                AudioManager.instance.Stop("SongMain");
+                AudioManager.instance.Play("SongDrums");
             }
         }
     }

@@ -49,7 +49,7 @@ MonoBehaviour:
     sounds:
     - name: 1
       clip: {fileID: 8300000, guid: 015d6ebc0a11c4ee0b9a8ed9924ca212, type: 3}
-      volume: 0.5
+      volume: 0.1
       pitch: 1
       loop: 1
       sauce: {fileID: 0}
@@ -58,7 +58,7 @@ MonoBehaviour:
     sounds:
     - name: 1
       clip: {fileID: 8300000, guid: b369605d005c9450d9f129f13dad3a0a, type: 3}
-      volume: 0.5
+      volume: 0.3
       pitch: 1
       loop: 1
       sauce: {fileID: 0}
@@ -67,7 +67,25 @@ MonoBehaviour:
     sounds:
     - name: 1
       clip: {fileID: 8300000, guid: 80c1ef09235324df1beb81c7cf3b5f07, type: 3}
-      volume: 0.5
+      volume: 0.1
+      pitch: 1
+      loop: 1
+      sauce: {fileID: 0}
+    soundIndex: 0
+  - name: Rain
+    sounds:
+    - name: 1
+      clip: {fileID: 8300000, guid: 6e688cf18a99549ed862a91358bf1145, type: 3}
+      volume: 0.1
+      pitch: 1
+      loop: 0
+      sauce: {fileID: 0}
+    soundIndex: 0
+  - name: PlatformMoving
+    sounds:
+    - name: 1
+      clip: {fileID: 8300000, guid: 41e3a1153e7c14ed0a970891ec9f384a, type: 3}
+      volume: 1
       pitch: 1
       loop: 1
       sauce: {fileID: 0}
@@ -81,6 +99,24 @@ MonoBehaviour:
       loop: 0
       sauce: {fileID: 0}
     soundIndex: 0
+  - name: Drop
+    sounds:
+    - name: 1
+      clip: {fileID: 8300000, guid: 8c4ce43e8612840babce2e4cef923790, type: 3}
+      volume: 1
+      pitch: 1
+      loop: 0
+      sauce: {fileID: 0}
+    soundIndex: 0
+  - name: Throw
+    sounds:
+    - name: 1
+      clip: {fileID: 8300000, guid: 35456ce86394f4256a973fa6b9fc5473, type: 3}
+      volume: 0.8
+      pitch: 1
+      loop: 0
+      sauce: {fileID: 0}
+    soundIndex: 0
   - name: Jump
     sounds:
     - name: 1
@@ -88,5 +124,113 @@ MonoBehaviour:
       volume: 1
       pitch: 1
       loop: 0
+      sauce: {fileID: 0}
+    soundIndex: 0
+  - name: Landing
+    sounds:
+    - name: 1
+      clip: {fileID: 8300000, guid: 671c50526f18e470b95442c091784130, type: 3}
+      volume: 1
+      pitch: 1
+      loop: 0
+      sauce: {fileID: 0}
+    soundIndex: 0
+  - name: BrittleGroundBreaking
+    sounds:
+    - name: 1
+      clip: {fileID: 8300000, guid: 7cc0eb8a240334b40abbbb30c2e3d0a1, type: 3}
+      volume: 1
+      pitch: 1
+      loop: 0
+      sauce: {fileID: 0}
+    soundIndex: 0
+  - name: Checkpoint
+    sounds:
+    - name: 1
+      clip: {fileID: 8300000, guid: b44e702e10c9a47eebcdf90d44e47736, type: 3}
+      volume: 1
+      pitch: 1
+      loop: 0
+      sauce: {fileID: 0}
+    soundIndex: 0
+  - name: Splash
+    sounds:
+    - name: 1
+      clip: {fileID: 8300000, guid: 47002c35b25f944a19e536f56cf9a8cc, type: 3}
+      volume: 1
+      pitch: 1
+      loop: 0
+      sauce: {fileID: 0}
+    soundIndex: 0
+  - name: NewHead
+    sounds:
+    - name: 1
+      clip: {fileID: 8300000, guid: 0d7e037baf67643de8e9b74775d15c53, type: 3}
+      volume: 1
+      pitch: 1
+      loop: 0
+      sauce: {fileID: 0}
+    soundIndex: 0
+  - name: WormAppear
+    sounds:
+    - name: 1
+      clip: {fileID: 8300000, guid: 2786218d0069c4d2d992d6ff2b502897, type: 3}
+      volume: 0.25
+      pitch: 1
+      loop: 0
+      sauce: {fileID: 0}
+    soundIndex: 0
+  - name: Death
+    sounds:
+    - name: 1
+      clip: {fileID: 8300000, guid: a5aa40764d0b64817b92bfb5ed93deb4, type: 3}
+      volume: 1
+      pitch: 1
+      loop: 0
+      sauce: {fileID: 0}
+    soundIndex: 0
+  - name: PlantDeath
+    sounds:
+    - name: 1
+      clip: {fileID: 8300000, guid: 1faca03f179a1418ab6088131aa711ec, type: 3}
+      volume: 1
+      pitch: 1
+      loop: 0
+      sauce: {fileID: 0}
+    soundIndex: 0
+  - name: Climbing
+    sounds:
+    - name: 1
+      clip: {fileID: 8300000, guid: b2c3290bfb6854626a054d5f90e261d8, type: 3}
+      volume: 1
+      pitch: 1
+      loop: 1
+      sauce: {fileID: 0}
+    soundIndex: 0
+  - name: WalkingOnBrittleGround
+    sounds:
+    - name: 1
+      clip: {fileID: 8300000, guid: 89117b4166e69494597b2a1deb86c25c, type: 3}
+      volume: 1
+      pitch: 1
+      loop: 1
+      sauce: {fileID: 0}
+    soundIndex: 0
+  - name: WalkingOnPlatform
+    sounds:
+    - name: 1
+      clip: {fileID: 8300000, guid: 123a2df76dd814872ab49f3077a9af1b, type: 3}
+      volume: 1
+      pitch: 1
+      loop: 1
+      sauce: {fileID: 0}
+    soundIndex: 0
+  - name: Walking
+    sounds:
+    - name: 1
+      clip: {fileID: 8300000, guid: 26353d6aced1c46a39f791397b9e83d3, type: 3}
+      volume: 0.5
+      pitch: 1
+      loop: 1
       sauce: {fileID: 0}
     soundIndex: 0
