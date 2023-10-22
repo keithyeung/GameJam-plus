@@ -125,7 +125,7 @@ NavMeshSettings:
   m_NavMeshData: {fileID: 0}
 --- !u!1 &215392423 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 8740188138240556225, guid: 5bb6f28e59b5f5a4d992c64251492503, type: 3}
+  m_CorrespondingSourceObject: {fileID: 8158395205251376268, guid: 5bb6f28e59b5f5a4d992c64251492503, type: 3}
   m_PrefabInstance: {fileID: 1390038793}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1390038793
