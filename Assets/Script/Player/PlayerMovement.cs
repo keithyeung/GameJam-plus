@@ -79,11 +79,13 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
         IsGrounded();
+        
     }
 
     private void FixedUpdate()
     {
         StateManager();
+        
     }
 
     public void Climb(InputAction.CallbackContext context)
@@ -96,7 +98,8 @@ public class PlayerMovement : MonoBehaviour
             isClimbing = true;
             rb.gravityScale = 0f;
             GetComponent<BoxCollider2D>().isTrigger = true;
-            FindAnyObjectByType<PlayerAnimation>().ClimbingAni();
+            FindAnyObjectByType<PlayerAnimation>().SwitchingSpritesToClimbing();
+            
 
             AudioManager.instance.Play("Climbing");
         }
@@ -112,7 +115,6 @@ public class PlayerMovement : MonoBehaviour
         {
             if (rb.velocity.y == 0 && tempVec2.y != 0)
             {
-                FindAnyObjectByType<PlayerAnimation>().SwitchingSpritesToClimbing();
                 AudioManager.instance.Play("Climbing");
             }
             else if (rb.velocity.y != 0 && tempVec2.y == 0)
