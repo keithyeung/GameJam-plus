@@ -8947,7 +8947,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8981942166233203134, guid: 1bd498777eaf78445bf7a0b629bdea93, type: 3}
       propertyPath: highPos1.y
-      value: 12.5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8981942166233203134, guid: 1bd498777eaf78445bf7a0b629bdea93, type: 3}
       propertyPath: highPos2.x
@@ -8955,7 +8955,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8981942166233203134, guid: 1bd498777eaf78445bf7a0b629bdea93, type: 3}
       propertyPath: highPos2.y
-      value: 12.5
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8981942166233203134, guid: 1bd498777eaf78445bf7a0b629bdea93, type: 3}
+      propertyPath: middlePos1.x
+      value: 24.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8981942166233203134, guid: 1bd498777eaf78445bf7a0b629bdea93, type: 3}
+      propertyPath: middlePos1.y
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8981942166233203134, guid: 1bd498777eaf78445bf7a0b629bdea93, type: 3}
+      propertyPath: middlePos2.x
+      value: -1.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 8981942166233203134, guid: 1bd498777eaf78445bf7a0b629bdea93, type: 3}
+      propertyPath: middlePos2.y
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 8989166563703681789, guid: 1bd498777eaf78445bf7a0b629bdea93, type: 3}
       propertyPath: m_LocalScale.y
