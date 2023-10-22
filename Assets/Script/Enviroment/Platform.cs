@@ -15,6 +15,8 @@ public class Platform : MonoBehaviour
         _isMoving = true;
         _goalPosition = _endPosition;
         _isMovingTowardsEnd = true;
+
+        AudioManager.instance.Play("PlatformMoving");
     }
 
     private void Update()
@@ -34,6 +36,7 @@ public class Platform : MonoBehaviour
                 else
                 {
                     _isMoving = false;
+                    AudioManager.instance.Stop("PlatformMoving");
                 }
             }
         }

@@ -16,6 +16,8 @@ public class BrittleGround : MonoBehaviour
         }
 
         GetComponent<SpriteRenderer>().enabled = false;
+
+        AudioManager.instance.Play("BrittleGroundBreaking");
     }
 
 
