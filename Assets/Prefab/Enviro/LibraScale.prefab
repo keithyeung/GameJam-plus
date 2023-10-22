@@ -1057,4 +1057,4 @@ MonoBehaviour:
   highPos2: {x: -5, y: 4.5, z: 0}
   middlePos2: {x: 0, y: 0, z: 0}
   lowPos2: {x: -5, y: -1.5, z: 0}
-  _speed: 1
+  _speed: 2

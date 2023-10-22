@@ -21,9 +21,9 @@ public class Platform : MonoBehaviour
     {
         if (_isMoving)
         {
-            transform.position = Vector2.MoveTowards(transform.position, _goalPosition, Time.deltaTime * _speed);
+            transform.localPosition = Vector2.MoveTowards(transform.localPosition, _goalPosition, Time.deltaTime * _speed);
             
-            if (transform.position == _goalPosition)
+            if (transform.localPosition == _goalPosition)
             {
                 if (_keepMoving)
                 {
