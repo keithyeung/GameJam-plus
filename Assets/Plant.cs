@@ -40,7 +40,10 @@ public class Plant : MonoBehaviour
             {
                 GameManager.instance.Restart();
             }
-            gameObject.SetActive(false);
+            else
+            {
+                gameObject.SetActive(false);
+            }
         }
     }
 }

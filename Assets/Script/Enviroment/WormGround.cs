@@ -45,6 +45,11 @@ public class WormGround : MonoBehaviour
                 _wormCurve += Time.deltaTime * _wormChillSpeed;
 
                 float sine = Mathf.Sin(_wormCurve);
+                if (sine / 2.5f == float.NaN)
+                {
+                    print("sine value became NaN, it's got the value " + sine);
+                    return;
+                }
 
                 _worm.transform.localPosition = new Vector3(sine / 2.5f, 0, 0);
 
