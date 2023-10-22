@@ -59,7 +59,6 @@ public class AudioManager : MonoBehaviour
 
     void Start()
     {
-
         Play("SongMain");
         Play("Rain");
     }
