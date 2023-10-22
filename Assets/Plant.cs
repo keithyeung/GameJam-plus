@@ -4,6 +4,7 @@ using UnityEngine.Rendering.Universal;
 
 public class Plant : MonoBehaviour
 {
+
     [Serializable]
     public struct GrowthLevel
     {
@@ -18,20 +19,28 @@ public class Plant : MonoBehaviour
     [SerializeField] private Light2D _light;
 
 
+
     private void Start()
     {
         _rend.sprite = _levels[_levelIndex].sprite;
         _light.intensity = _levels[_levelIndex].lightIntensity;
+
+        if (!name.Contains("Fake"))
+        {
+            transform.position = GameManager.instance._plantRespawnPos;
+
+
+        }
     }
 
-    public void Grow()
+    public void Grow(int growth)
     {
-        _levelIndex++;
+        _levelIndex = growth;
         _rend.sprite = _levels[_levelIndex].sprite;
         _light.intensity = _levels[_levelIndex].lightIntensity;
 
         AudioManager.instance.Play("NewHead");
-        AudioManager.instance.voice++;
+        AudioManager.instance.voice = growth;
         AudioManager.instance.Play("VoiceFirstTime" + AudioManager.instance.voice);
 
     }

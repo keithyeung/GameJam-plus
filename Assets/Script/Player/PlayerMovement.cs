@@ -49,6 +49,11 @@ public class PlayerMovement : MonoBehaviour
         isFacingRight = true;
     }
 
+    private void Start()
+    {
+        transform.position = GameManager.instance._playerRespawnPos;
+    }
+
     private void StateManager()
     {
         switch (states)

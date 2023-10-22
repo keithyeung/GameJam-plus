@@ -1,5 +1,5 @@
 using UnityEngine;
-using UnityEngine.UIElements;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -8,8 +8,8 @@ public class GameManager : MonoBehaviour
     public GameObject player;
     public GameObject plant;
 
-    private Vector2 _playerRespawnPos;
-    private Vector2 _plantRespawnPos;
+    public Vector2 _playerRespawnPos;
+    public Vector2 _plantRespawnPos;
 
     private void Awake()
     {
@@ -29,8 +29,6 @@ public class GameManager : MonoBehaviour
     }
 
 
-
-
     public void Checkpoint(Vector2 position)
     {
         _playerRespawnPos = position;
@@ -42,9 +40,14 @@ public class GameManager : MonoBehaviour
 
     public void Restart()
     {
-        print("death");
+        GameObject.Find("Fade").GetComponent<Animator>().Play("FadeOut");
 
-        player.transform.position = _playerRespawnPos;
-        plant.transform.position = _plantRespawnPos;
+        Invoke("Load", 2);
+    }
+
+    public void Load()
+    {
+        SceneManager.LoadScene("Rasmus");
+
     }
 }

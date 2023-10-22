@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Main Scene.unity
     guid: 17092c203ec900c4998c962757e82222
+  - enabled: 1
+    path: Assets/Scenes/Rasmus.unity
+    guid: aa2a2d05237d8864dbdba82902a3a747
   m_configObjects: {}
