@@ -276,7 +276,7 @@ public class PlayerMovement : MonoBehaviour
             isClimbing = false;
             rb.gravityScale = 1f;
             GetComponent<BoxCollider2D>().isTrigger = false;
-            FindAnyObjectByType<PlayerAnimation>().SwitchingSpritesToNormal();
+            GetComponent<PlayerAnimation>().SwitchingSpritesToNormal();
         }
     }
 }
