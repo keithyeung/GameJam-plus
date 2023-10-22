@@ -265,9 +265,15 @@ MonoBehaviour:
   - sprite: {fileID: 21300000, guid: edf0963e25b5f2547b7b95b98bd17f9a, type: 3}
     lightRadius: 10
     lightIntensity: 1
-  - sprite: {fileID: 21300000, guid: edf0963e25b5f2547b7b95b98bd17f9a, type: 3}
+  - sprite: {fileID: 21300000, guid: 6715851a8ce922b408b68d4b5dbc0f47, type: 3}
+    lightRadius: 15
+    lightIntensity: 1.5
+  - sprite: {fileID: 21300000, guid: a3818b1f0fea6244e8317f678d598fbf, type: 3}
     lightRadius: 20
     lightIntensity: 2
+  - sprite: {fileID: 21300000, guid: de6ff2fa61bc6ed4395884700360662f, type: 3}
+    lightRadius: 30
+    lightIntensity: 3
   _rend: {fileID: 7263516937883203963}
   _light: {fileID: 2634370576227596378}
 --- !u!61 &6969978405242688086
@@ -305,7 +311,7 @@ BoxCollider2D:
   m_Offset: {x: 0.08351159, y: -0.9186286}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.53645414, y: 0.54399854}
     oldSize: {x: 3.54, y: 4.19}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
