@@ -61,6 +61,7 @@ public class WormGround : MonoBehaviour
                 if (_attackTimer >= _attackDuration && underPlatform == false)
                 {
                     _anim.Play("WormAnim");
+                    AudioManager.instance.Play("WormAppear");
                     _state = state.inAir;
                 }
             }
@@ -75,6 +76,7 @@ public class WormGround : MonoBehaviour
                     if (_curiosTimer >= _curiosDuration && underPlatform == false)
                     {
                         _anim.Play("WormAnim");
+                        AudioManager.instance.Play("WormAppear");
                         _state = state.inAir;
                     }
                 }
@@ -87,6 +89,7 @@ public class WormGround : MonoBehaviour
                 if (Mathf.Abs(_worm.transform.position.x - targetPos.x) < 0.05 && underPlatform == false)
                 {
                     _anim.Play("WormAnim");
+                    AudioManager.instance.Play("WormAppear");
                     _state = state.inAir;
                 }
             }

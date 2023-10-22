@@ -8,10 +8,12 @@ public class Spikes : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
+            AudioManager.instance.Play("Death");
             GameManager.instance.Restart();
         }
         else if (collision.name == "Plant")
         {
+            AudioManager.instance.Play("PlantDeath");
             GameManager.instance.Restart();
         }
     }
