@@ -35,7 +35,11 @@ public class PlayerMovement : MonoBehaviour
 
     //Input Map
     private CustomInput m_input = null;
-    
+
+
+
+    private float walkTimer = 0;
+
 
     private void Awake()
     {
@@ -136,11 +140,31 @@ public class PlayerMovement : MonoBehaviour
     {
         if (rb.velocity.x == 0 && moveInput.x != 0)
         {
-            AudioManager.instance.Play("Walking");
+            if (onBrittle)
+            {
+                AudioManager.instance.Play("WalkingOnBrittleGround");
+
+            }
+            else
+            {
+                AudioManager.instance.Play("Walking");
+
+            }
         }
         else if (rb.velocity.x != 0 && moveInput.x == 0)
         {
             AudioManager.instance.Stop("Walking");
+        }
+
+
+        if (rb.velocity.x != 0)
+        {
+            walkTimer += Time.deltaTime;
+            if (walkTimer > 10)
+            {
+                walkTimer = 0;
+                AudioManager.instance.Play("VoiceWalking");
+            }
         }
 
         // Apply movement
@@ -156,6 +180,33 @@ public class PlayerMovement : MonoBehaviour
             Flip();
         }
     }
+
+    bool onBrittle;
+    public void OnBrittleGround(bool onOrOff)
+    {
+        if (onOrOff)
+        {
+            if (rb.velocity.x != 0)
+            {
+                AudioManager.instance.Stop("Walking");
+                AudioManager.instance.Play("WalkingOnBrittleGround");
+
+                onBrittle = true;
+            }
+        }
+        else
+        {
+            if (rb.velocity.x != 0)
+            {
+                AudioManager.instance.Stop("WalkingOnBrittleGround");
+                AudioManager.instance.Play("Walking");
+
+                onBrittle = false;
+            }
+        }
+        
+    }
+
 
     public void Jump(InputAction.CallbackContext context)
     {

@@ -53,7 +53,7 @@ MonoBehaviour:
       pitch: 1
       loop: 1
       sauce: {fileID: 0}
-    soundIndex: 0
+      head: 0
   - name: SongDrums
     sounds:
     - name: 1
@@ -62,7 +62,7 @@ MonoBehaviour:
       pitch: 1
       loop: 1
       sauce: {fileID: 0}
-    soundIndex: 0
+      head: 0
   - name: SongFinal
     sounds:
     - name: 1
@@ -71,7 +71,7 @@ MonoBehaviour:
       pitch: 1
       loop: 1
       sauce: {fileID: 0}
-    soundIndex: 0
+      head: 0
   - name: Rain
     sounds:
     - name: 1
@@ -80,7 +80,7 @@ MonoBehaviour:
       pitch: 1
       loop: 0
       sauce: {fileID: 0}
-    soundIndex: 0
+      head: 0
   - name: PlatformMoving
     sounds:
     - name: 1
@@ -89,7 +89,7 @@ MonoBehaviour:
       pitch: 1
       loop: 1
       sauce: {fileID: 0}
-    soundIndex: 0
+      head: 0
   - name: PickUp
     sounds:
     - name: 1
@@ -98,7 +98,7 @@ MonoBehaviour:
       pitch: 1
       loop: 0
       sauce: {fileID: 0}
-    soundIndex: 0
+      head: 0
   - name: Drop
     sounds:
     - name: 1
@@ -107,7 +107,7 @@ MonoBehaviour:
       pitch: 1
       loop: 0
       sauce: {fileID: 0}
-    soundIndex: 0
+      head: 0
   - name: Throw
     sounds:
     - name: 1
@@ -116,7 +116,7 @@ MonoBehaviour:
       pitch: 1
       loop: 0
       sauce: {fileID: 0}
-    soundIndex: 0
+      head: 0
   - name: Jump
     sounds:
     - name: 1
@@ -125,7 +125,7 @@ MonoBehaviour:
       pitch: 1
       loop: 0
       sauce: {fileID: 0}
-    soundIndex: 0
+      head: 0
   - name: Landing
     sounds:
     - name: 1
@@ -134,7 +134,7 @@ MonoBehaviour:
       pitch: 1
       loop: 0
       sauce: {fileID: 0}
-    soundIndex: 0
+      head: 0
   - name: BrittleGroundBreaking
     sounds:
     - name: 1
@@ -143,7 +143,7 @@ MonoBehaviour:
       pitch: 1
       loop: 0
       sauce: {fileID: 0}
-    soundIndex: 0
+      head: 0
   - name: Checkpoint
     sounds:
     - name: 1
@@ -152,7 +152,7 @@ MonoBehaviour:
       pitch: 1
       loop: 0
       sauce: {fileID: 0}
-    soundIndex: 0
+      head: 0
   - name: Splash
     sounds:
     - name: 1
@@ -161,7 +161,7 @@ MonoBehaviour:
       pitch: 1
       loop: 0
       sauce: {fileID: 0}
-    soundIndex: 0
+      head: 0
   - name: NewHead
     sounds:
     - name: 1
@@ -170,7 +170,7 @@ MonoBehaviour:
       pitch: 1
       loop: 0
       sauce: {fileID: 0}
-    soundIndex: 0
+      head: 0
   - name: WormAppear
     sounds:
     - name: 1
@@ -179,7 +179,7 @@ MonoBehaviour:
       pitch: 1
       loop: 0
       sauce: {fileID: 0}
-    soundIndex: 0
+      head: 0
   - name: Death
     sounds:
     - name: 1
@@ -188,7 +188,7 @@ MonoBehaviour:
       pitch: 1
       loop: 0
       sauce: {fileID: 0}
-    soundIndex: 0
+      head: 0
   - name: PlantDeath
     sounds:
     - name: 1
@@ -197,7 +197,7 @@ MonoBehaviour:
       pitch: 1
       loop: 0
       sauce: {fileID: 0}
-    soundIndex: 0
+      head: 0
   - name: Climbing
     sounds:
     - name: 1
@@ -206,31 +206,186 @@ MonoBehaviour:
       pitch: 1
       loop: 1
       sauce: {fileID: 0}
-    soundIndex: 0
+      head: 0
   - name: WalkingOnBrittleGround
     sounds:
     - name: 1
       clip: {fileID: 8300000, guid: 89117b4166e69494597b2a1deb86c25c, type: 3}
       volume: 1
-      pitch: 1
+      pitch: 0.9
       loop: 1
       sauce: {fileID: 0}
-    soundIndex: 0
+      head: 0
   - name: WalkingOnPlatform
     sounds:
     - name: 1
-      clip: {fileID: 8300000, guid: 123a2df76dd814872ab49f3077a9af1b, type: 3}
+      clip: {fileID: 0}
       volume: 1
       pitch: 1
       loop: 1
       sauce: {fileID: 0}
-    soundIndex: 0
+      head: 0
   - name: Walking
     sounds:
     - name: 1
-      clip: {fileID: 8300000, guid: 26353d6aced1c46a39f791397b9e83d3, type: 3}
-      volume: 0.5
-      pitch: 1
+      clip: {fileID: 8300000, guid: c1d7689ef381b1d44ac2e7306debf72f, type: 3}
+      volume: 0.25
+      pitch: 1.5
       loop: 1
       sauce: {fileID: 0}
-    soundIndex: 0
+      head: 0
+  - name: VoiceFirstTime1
+    sounds:
+    - name: 1
+      clip: {fileID: 8300000, guid: 87a39caa69ba7427bb2731390c9dab1a, type: 3}
+      volume: 0.5
+      pitch: 1
+      loop: 0
+      sauce: {fileID: 0}
+      head: 1
+  - name: VoiceFirstTime2
+    sounds:
+    - name: 2
+      clip: {fileID: 8300000, guid: 3ebffe6af3c7f49a8bb74b16d034fa7b, type: 3}
+      volume: 0.5
+      pitch: 1
+      loop: 0
+      sauce: {fileID: 0}
+      head: 2
+  - name: VoiceFirstTime3
+    sounds:
+    - name: 3
+      clip: {fileID: 8300000, guid: c05111d2eca064aa28eaf84092a4e2ef, type: 3}
+      volume: 0.5
+      pitch: 1
+      loop: 0
+      sauce: {fileID: 0}
+      head: 3
+  - name: VoicePickUp
+    sounds:
+    - name: 1
+      clip: {fileID: 8300000, guid: 74a434a751454435193775dbaec16998, type: 3}
+      volume: 0.5
+      pitch: 1
+      loop: 0
+      sauce: {fileID: 0}
+      head: 1
+    - name: 1
+      clip: {fileID: 8300000, guid: 55b8c104b87134f319d77f544a5b2b73, type: 3}
+      volume: 0.5
+      pitch: 1
+      loop: 0
+      sauce: {fileID: 0}
+      head: 1
+    - name: 1
+      clip: {fileID: 8300000, guid: f5b1d5a0ad66a4ec18c2c0d4e01b4b34, type: 3}
+      volume: 0.5
+      pitch: 1
+      loop: 0
+      sauce: {fileID: 0}
+      head: 1
+    - name: 2
+      clip: {fileID: 8300000, guid: a590dec908c414bbfb54ac7d37c3c464, type: 3}
+      volume: 0.5
+      pitch: 1
+      loop: 0
+      sauce: {fileID: 0}
+      head: 2
+  - name: VoiceDrop
+    sounds:
+    - name: 1
+      clip: {fileID: 8300000, guid: 98829aea9234a4690b1ad7bdf1aeba1b, type: 3}
+      volume: 0.5
+      pitch: 1
+      loop: 0
+      sauce: {fileID: 0}
+      head: 1
+    - name: 2
+      clip: {fileID: 8300000, guid: 220f262b4bd8d4e45bc3f3c71253151c, type: 3}
+      volume: 0.5
+      pitch: 1
+      loop: 0
+      sauce: {fileID: 0}
+      head: 2
+    - name: 3
+      clip: {fileID: 8300000, guid: a2bf927ee630345a4abc128226d4b853, type: 3}
+      volume: 0.5
+      pitch: 1
+      loop: 0
+      sauce: {fileID: 0}
+      head: 3
+  - name: VoiceThrow
+    sounds:
+    - name: 1
+      clip: {fileID: 8300000, guid: bbb2c0dcc3d404270af3420d29631970, type: 3}
+      volume: 0.5
+      pitch: 1
+      loop: 0
+      sauce: {fileID: 0}
+      head: 1
+    - name: 1
+      clip: {fileID: 8300000, guid: ee54e4451bdd54e98bdcaf000828abdb, type: 3}
+      volume: 0.5
+      pitch: 1
+      loop: 0
+      sauce: {fileID: 0}
+      head: 1
+    - name: 1
+      clip: {fileID: 8300000, guid: f8e92e3abeaf643e5b7be0e899779dc0, type: 3}
+      volume: 0.5
+      pitch: 1
+      loop: 0
+      sauce: {fileID: 0}
+      head: 1
+    - name: 2
+      clip: {fileID: 8300000, guid: c483d38e0038b4f359fa89bff8a8acc6, type: 3}
+      volume: 0.5
+      pitch: 1
+      loop: 0
+      sauce: {fileID: 0}
+      head: 2
+    - name: 2
+      clip: {fileID: 8300000, guid: a3351dadb11e2418f88562bbe46af8ea, type: 3}
+      volume: 0.5
+      pitch: 1
+      loop: 0
+      sauce: {fileID: 0}
+      head: 2
+    - name: 3
+      clip: {fileID: 8300000, guid: 6e73ebbf5185141f4a965635c0d165dd, type: 3}
+      volume: 0.5
+      pitch: 1
+      loop: 0
+      sauce: {fileID: 0}
+      head: 3
+    - name: 3
+      clip: {fileID: 8300000, guid: 505d57f4291784a769694e62374c2bea, type: 3}
+      volume: 0.5
+      pitch: 1
+      loop: 0
+      sauce: {fileID: 0}
+      head: 3
+  - name: VoiceWalking
+    sounds:
+    - name: 1
+      clip: {fileID: 8300000, guid: 2367630e7ab754a03b13e0e2d1715c40, type: 3}
+      volume: 0.5
+      pitch: 1
+      loop: 0
+      sauce: {fileID: 0}
+      head: 1
+    - name: 1
+      clip: {fileID: 8300000, guid: 623c0b3f676e049338f80bc1b5f77270, type: 3}
+      volume: 0.5
+      pitch: 1
+      loop: 0
+      sauce: {fileID: 0}
+      head: 1
+    - name: 1
+      clip: {fileID: 8300000, guid: bc69fd4dd7e814228b6b1c7c65d212b7, type: 3}
+      volume: 0.5
+      pitch: 1
+      loop: 0
+      sauce: {fileID: 0}
+      head: 1
+  voice: 0

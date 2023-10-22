@@ -31,6 +31,16 @@ public class PlayerItems : MonoBehaviour
     }
 
 
+    private void Reset()
+    {
+        _heldObject.transform.SetParent(null);
+        _heldObject.GetComponent<Rigidbody2D>().gravityScale = 1;
+        _heldObject.GetComponent<Rigidbody2D>().isKinematic = false;
+        _heldObject = null;
+
+        _aim.SetActive(false);
+    }
+
     private void PickUp()
     {
         if (Input.GetKeyDown(KeyCode.P))
