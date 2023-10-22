@@ -52,6 +52,7 @@ public class PlayerItems : MonoBehaviour
                     }
 
                     AudioManager.instance.Play("PickUp");
+                    AudioManager.instance.Play("VoicePickUp");
                 }
             }
             //drop
@@ -65,6 +66,7 @@ public class PlayerItems : MonoBehaviour
                 _aim.SetActive(false);
 
                 AudioManager.instance.Play("Drop");
+                AudioManager.instance.Play("VoiceDrop");
             }
 
         }
@@ -140,6 +142,7 @@ public class PlayerItems : MonoBehaviour
                 _aim.SetActive(false);
 
                 AudioManager.instance.Play("Throw");
+                AudioManager.instance.Play("VoiceThrow");
             }
             
         }
