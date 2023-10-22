@@ -8,8 +8,8 @@ public class GameManager : MonoBehaviour
     public GameObject player;
     public GameObject plant;
 
-    public Vector2 _playerRespawnPos;
-    public Vector2 _plantRespawnPos;
+    [HideInInspector] public Vector2 _playerRespawnPos;
+    [HideInInspector] public Vector2 _plantRespawnPos;
 
     private void Awake()
     {
@@ -47,7 +47,7 @@ public class GameManager : MonoBehaviour
 
     public void Load()
     {
-        SceneManager.LoadScene("Rasmus");
+        SceneManager.LoadScene("Main Scene");
 
     }
 }

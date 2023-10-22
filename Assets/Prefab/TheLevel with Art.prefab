@@ -23573,7 +23573,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 570d93ebca4d53048aae25412561be2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1388356535381376330}
+  player: {fileID: 8158395205251376268}
   plant: {fileID: 2996164699901499805}
   _playerRespawnPos: {x: 0, y: 0}
   _plantRespawnPos: {x: 0, y: 0}
@@ -57078,14 +57078,6 @@ PrefabInstance:
       value: 3Cs
       objectReference: {fileID: 0}
     - target: {fileID: 4744944274633129807, guid: 3a16a5d1a8ac4c04f98a712f02aeebd2, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -152.9
-      objectReference: {fileID: 0}
-    - target: {fileID: 4744944274633129807, guid: 3a16a5d1a8ac4c04f98a712f02aeebd2, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -5.02
-      objectReference: {fileID: 0}
-    - target: {fileID: 4744944274633129807, guid: 3a16a5d1a8ac4c04f98a712f02aeebd2, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
@@ -57125,5 +57117,10 @@ PrefabInstance:
 --- !u!4 &3749775968390427828 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4744944274633129807, guid: 3a16a5d1a8ac4c04f98a712f02aeebd2, type: 3}
+  m_PrefabInstance: {fileID: 8489440113308388347}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8158395205251376268 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 353811825326878583, guid: 3a16a5d1a8ac4c04f98a712f02aeebd2, type: 3}
   m_PrefabInstance: {fileID: 8489440113308388347}
   m_PrefabAsset: {fileID: 0}
