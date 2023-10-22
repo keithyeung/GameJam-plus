@@ -1,4 +1,6 @@
+using System.Collections;
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 [Serializable]
@@ -13,6 +15,8 @@ public class Sound
     public bool loop;
 
     [HideInInspector] public AudioSource sauce;
+
+    public int head;
 }
 
 [Serializable]
@@ -20,7 +24,6 @@ public class SoundEvent
 {
     public string name;
     public Sound[] sounds;
-    [HideInInspector] public int soundIndex = 0;
 }
 
 public class AudioManager : MonoBehaviour
@@ -29,6 +32,7 @@ public class AudioManager : MonoBehaviour
 
     [SerializeField] private SoundEvent[] _sounds;
 
+    public int voice = 0;
 
     private void Awake()
     {
@@ -68,13 +72,32 @@ public class AudioManager : MonoBehaviour
         {
             if (e.name == name)
             {
-                Sound s = e.sounds[e.soundIndex];
-                s.sauce.Play();
+                if (e.name.Contains("Voice"))
+                {
+                    List<Sound> sounds = new List<Sound>();
+                    foreach (Sound s in e.sounds)
+                    {
+                        if (s.head <= voice)
+                        {
+                            sounds.Add(s);
+                        }
+                    }
 
-                e.soundIndex++;
-                if (e.soundIndex == e.sounds.Length) { 
-                    e.soundIndex = 0; 
+                    if (sounds.Count == 0) { return; }
+
+                    int i = UnityEngine.Random.Range(0, sounds.Count);
+
+                    sounds[i].sauce.Play();
+
                 }
+                else
+                {
+                    e.sounds[0].sauce.Play();
+                }
+                
+
+
+               
             }
         }
     }

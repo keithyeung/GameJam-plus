@@ -20,17 +20,18 @@ public class Plant : MonoBehaviour
 
     private void Start()
     {
-        Grow();
+        _rend.sprite = _levels[_levelIndex].sprite;
+        _light.intensity = _levels[_levelIndex].lightIntensity;
     }
 
     public void Grow()
     {
+        _levelIndex++;
         _rend.sprite = _levels[_levelIndex].sprite;
         _light.intensity = _levels[_levelIndex].lightIntensity;
 
-        _levelIndex++;
-
         AudioManager.instance.Play("NewHead");
+        AudioManager.instance.voice++;
     }
 
 
