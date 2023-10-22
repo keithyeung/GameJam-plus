@@ -23,11 +23,6 @@ public class PlayerMovement : MonoBehaviour
     private bool climbable;
     public bool isClimbing;
 
-
-    //Animator
-    public Animator playerAnimator;
-
-
     //Player States
     private enum playerStates
     {
@@ -48,7 +43,6 @@ public class PlayerMovement : MonoBehaviour
         m_input = new CustomInput();
         states = playerStates.defaultState;
         isFacingRight = true;
-        playerAnimator = FindAnyObjectByType<Animator>();
     }
 
     private void StateManager()
@@ -97,14 +91,10 @@ public class PlayerMovement : MonoBehaviour
         {
             isClimbing = true;
             rb.gravityScale = 0f;
-<<<<<<< Updated upstream
-            GetComponent<CircleCollider2D>().isTrigger = true;
+            GetComponent<BoxCollider2D>().isTrigger = true;
+            FindAnyObjectByType<PlayerAnimation>().ClimbingAni();
 
             AudioManager.instance.Play("Climbing");
-=======
-            GetComponent<BoxCollider2D>().isTrigger = true;
-            GetComponent<PlayerAnimation>().SwitchingSpritesToClimbing();
->>>>>>> Stashed changes
         }
         else if (context.canceled && !climbable)
         {
@@ -118,6 +108,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if (rb.velocity.y == 0 && tempVec2.y != 0)
             {
+                FindAnyObjectByType<PlayerAnimation>().SwitchingSpritesToClimbing();
                 AudioManager.instance.Play("Climbing");
             }
             else if (rb.velocity.y != 0 && tempVec2.y == 0)
@@ -155,16 +146,6 @@ public class PlayerMovement : MonoBehaviour
         // Apply movement
         float moveX = moveInput.x * moveSpeed * Time.deltaTime;
         rb.velocity = new Vector2(moveX, rb.velocity.y);
-        //Animation code
-        if(moveInput.x != 0)
-        {
-            FindAnyObjectByType<PlayerAnimation>().WalkingAni();
-        }
-        else
-        {
-            FindAnyObjectByType<PlayerAnimation>().Idle();
-        }
-        //
 
         if (!isFacingRight && moveInput.x > 0f)
         {
@@ -179,7 +160,6 @@ public class PlayerMovement : MonoBehaviour
     public void Jump(InputAction.CallbackContext context)
     {
         if(GetComponent<PlayerItems>()._heldObject != null) { return; }
-        Debug.Log("Jump");
         if(context.performed && isGrounded)
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
@@ -230,7 +210,7 @@ public class PlayerMovement : MonoBehaviour
             isClimbing = false;
             rb.gravityScale = 1f;
             GetComponent<BoxCollider2D>().isTrigger = false;
-            GetComponent<PlayerAnimation>().SwitchingSpritesToNormal();
+            FindAnyObjectByType<PlayerAnimation>().SwitchingSpritesToNormal();
         }
     }
 }

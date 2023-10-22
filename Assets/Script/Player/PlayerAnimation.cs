@@ -35,6 +35,12 @@ public class PlayerAnimation : MonoBehaviour
         playerAnimator.SetBool("isThrowing",true);
     }
 
+    public void ClimbingAni()
+    {
+        Debug.Log("Debugging");
+        climbingSprite.GetComponent<Animator>().Play("climb");
+    }
+
     public void Idle()
     {
         playerAnimator.SetBool("isRunning", false);
