@@ -57,7 +57,7 @@ public class AudioManager : MonoBehaviour
         }
 
 
-        //Play("SongMain");
+        Play("SongMain");
     }
 
 

@@ -1,0 +1,92 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1967427062307354002
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5743987824568749625}
+  - component: {fileID: 2526086917515045436}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5743987824568749625
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1967427062307354002}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2526086917515045436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1967427062307354002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1d23e639d8a33743ac7fcb0112dc5ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sounds:
+  - name: SongMain
+    sounds:
+    - name: 1
+      clip: {fileID: 8300000, guid: 015d6ebc0a11c4ee0b9a8ed9924ca212, type: 3}
+      volume: 0.5
+      pitch: 1
+      loop: 1
+      sauce: {fileID: 0}
+    soundIndex: 0
+  - name: SongDrums
+    sounds:
+    - name: 1
+      clip: {fileID: 8300000, guid: b369605d005c9450d9f129f13dad3a0a, type: 3}
+      volume: 0.5
+      pitch: 1
+      loop: 1
+      sauce: {fileID: 0}
+    soundIndex: 0
+  - name: SongFinal
+    sounds:
+    - name: 1
+      clip: {fileID: 8300000, guid: 80c1ef09235324df1beb81c7cf3b5f07, type: 3}
+      volume: 0.5
+      pitch: 1
+      loop: 1
+      sauce: {fileID: 0}
+    soundIndex: 0
+  - name: PickUp
+    sounds:
+    - name: 1
+      clip: {fileID: 8300000, guid: 0e2652cafa5474586a05c4523d6bae22, type: 3}
+      volume: 1
+      pitch: 1
+      loop: 0
+      sauce: {fileID: 0}
+    soundIndex: 0
+  - name: Jump
+    sounds:
+    - name: 1
+      clip: {fileID: 8300000, guid: accdf4d23f1b9421c9cca98d68f2334e, type: 3}
+      volume: 1
+      pitch: 1
+      loop: 0
+      sauce: {fileID: 0}
+    soundIndex: 0
