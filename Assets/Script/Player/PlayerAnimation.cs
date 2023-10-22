@@ -38,7 +38,12 @@ public class PlayerAnimation : MonoBehaviour
     public void ClimbingAni()
     {
         Debug.Log("Debugging");
-        climbingSprite.GetComponent<Animator>().Play("climb");
+        climbingSprite.GetComponent<Animator>().SetBool("isClimbing",true);
+    }
+
+    public void IdleClimbing()
+    {
+        climbingSprite.GetComponent<Animator>().SetBool("isClimbing", false);
     }
 
     public void Idle()
