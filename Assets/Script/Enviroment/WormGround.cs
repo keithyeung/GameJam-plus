@@ -25,6 +25,8 @@ public class WormGround : MonoBehaviour
 
     private Transform _plant;
 
+    [HideInInspector] public bool underPlatform;
+    
 
     private void Start()
     {
@@ -56,7 +58,7 @@ public class WormGround : MonoBehaviour
 
                 //attack
                 _attackTimer += Time.deltaTime;
-                if (_attackTimer >= _attackDuration)
+                if (_attackTimer >= _attackDuration && underPlatform == false)
                 {
                     _anim.Play("WormAnim");
                     _state = state.inAir;
@@ -70,7 +72,7 @@ public class WormGround : MonoBehaviour
                 if (Mathf.Abs(_worm.transform.position.x - targetPos.x) < 0.05)
                 {
                     _curiosTimer += Time.deltaTime;
-                    if (_curiosTimer >= _curiosDuration)
+                    if (_curiosTimer >= _curiosDuration && underPlatform == false)
                     {
                         _anim.Play("WormAnim");
                         _state = state.inAir;
@@ -82,7 +84,7 @@ public class WormGround : MonoBehaviour
                 Vector2 targetPos = new Vector2(_plant.position.x, _worm.transform.position.y);
                 _worm.transform.position = Vector2.MoveTowards(_worm.transform.position, targetPos, Time.deltaTime * _wormAttackSpeed);
 
-                if (Mathf.Abs(_worm.transform.position.x - targetPos.x) < 0.05)
+                if (Mathf.Abs(_worm.transform.position.x - targetPos.x) < 0.05 && underPlatform == false)
                 {
                     _anim.Play("WormAnim");
                     _state = state.inAir;
@@ -116,7 +118,7 @@ public class WormGround : MonoBehaviour
         {
             _state = state.chilling;
             _attackTimer = 0;
-            _wormCurve = Mathf.Asin(_worm.transform.localPosition.x * 2.5f);
+            _wormCurve = Mathf.Asin(Mathf.Clamp(_worm.transform.localPosition.x * 2.5f, -1f, 1f));
         }
     }
 
@@ -159,7 +161,7 @@ public class WormGround : MonoBehaviour
                 {
                     _state = state.chilling;
                     _attackTimer = 0;
-                    _wormCurve = Mathf.Asin(_worm.transform.localPosition.x * 2.5f);
+                    _wormCurve = Mathf.Asin(Mathf.Clamp(_worm.transform.localPosition.x * 2.5f, -1f, 1f));
                 }
             }
                 
@@ -181,7 +183,7 @@ public class WormGround : MonoBehaviour
                 {
                     _state = state.chilling;
                     _attackTimer = 0;
-                    _wormCurve = Mathf.Asin(_worm.transform.localPosition.x * 2.5f);
+                    _wormCurve = Mathf.Asin(Mathf.Clamp(_worm.transform.localPosition.x * 2.5f, -1f, 1f));
                 }
             }
         }
