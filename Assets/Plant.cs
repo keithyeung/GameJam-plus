@@ -32,6 +32,8 @@ public class Plant : MonoBehaviour
 
         AudioManager.instance.Play("NewHead");
         AudioManager.instance.voice++;
+        AudioManager.instance.Play("VoiceFirstTime" + AudioManager.instance.voice);
+
     }
 
 

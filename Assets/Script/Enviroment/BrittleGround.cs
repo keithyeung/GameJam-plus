@@ -26,6 +26,7 @@ public class BrittleGround : MonoBehaviour
         if (collision.tag == "Player")
         {
             objects.Add(collision.gameObject);
+            collision.gameObject.GetComponent<PlayerMovement>().OnBrittleGround(true);
         }
         else if (collision.tag == "PickUp")
         {
@@ -43,6 +44,7 @@ public class BrittleGround : MonoBehaviour
         if (collision.tag == "Player")
         {
             objects.Remove(collision.gameObject);
+            collision.gameObject.GetComponent<PlayerMovement>().OnBrittleGround(false);
         }
         else if (collision.tag == "PickUp")
         {

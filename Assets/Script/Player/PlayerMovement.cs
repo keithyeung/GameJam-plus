@@ -23,11 +23,6 @@ public class PlayerMovement : MonoBehaviour
     private bool climbable;
     public bool isClimbing;
 
-
-    //Animator
-    public Animator playerAnimator;
-
-
     //Player States
     private enum playerStates
     {
@@ -40,7 +35,11 @@ public class PlayerMovement : MonoBehaviour
 
     //Input Map
     private CustomInput m_input = null;
-    
+
+
+
+    private float walkTimer = 0;
+
 
     private void Awake()
     {
@@ -48,7 +47,6 @@ public class PlayerMovement : MonoBehaviour
         m_input = new CustomInput();
         states = playerStates.defaultState;
         isFacingRight = true;
-        playerAnimator = FindAnyObjectByType<Animator>();
     }
 
     private void StateManager()
@@ -97,14 +95,10 @@ public class PlayerMovement : MonoBehaviour
         {
             isClimbing = true;
             rb.gravityScale = 0f;
-<<<<<<< Updated upstream
-            GetComponent<CircleCollider2D>().isTrigger = true;
+            GetComponent<BoxCollider2D>().isTrigger = true;
+            FindAnyObjectByType<PlayerAnimation>().ClimbingAni();
 
             AudioManager.instance.Play("Climbing");
-=======
-            GetComponent<BoxCollider2D>().isTrigger = true;
-            GetComponent<PlayerAnimation>().SwitchingSpritesToClimbing();
->>>>>>> Stashed changes
         }
         else if (context.canceled && !climbable)
         {
@@ -118,6 +112,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if (rb.velocity.y == 0 && tempVec2.y != 0)
             {
+                FindAnyObjectByType<PlayerAnimation>().SwitchingSpritesToClimbing();
                 AudioManager.instance.Play("Climbing");
             }
             else if (rb.velocity.y != 0 && tempVec2.y == 0)
@@ -145,26 +140,36 @@ public class PlayerMovement : MonoBehaviour
     {
         if (rb.velocity.x == 0 && moveInput.x != 0)
         {
-            AudioManager.instance.Play("Walking");
+            if (onBrittle)
+            {
+                AudioManager.instance.Play("WalkingOnBrittleGround");
+
+            }
+            else
+            {
+                AudioManager.instance.Play("Walking");
+
+            }
         }
         else if (rb.velocity.x != 0 && moveInput.x == 0)
         {
             AudioManager.instance.Stop("Walking");
         }
 
+
+        if (rb.velocity.x != 0)
+        {
+            walkTimer += Time.deltaTime;
+            if (walkTimer > 10)
+            {
+                walkTimer = 0;
+                AudioManager.instance.Play("VoiceWalking");
+            }
+        }
+
         // Apply movement
         float moveX = moveInput.x * moveSpeed * Time.deltaTime;
         rb.velocity = new Vector2(moveX, rb.velocity.y);
-        //Animation code
-        if(moveInput.x != 0)
-        {
-            FindAnyObjectByType<PlayerAnimation>().WalkingAni();
-        }
-        else
-        {
-            FindAnyObjectByType<PlayerAnimation>().Idle();
-        }
-        //
 
         if (!isFacingRight && moveInput.x > 0f)
         {
@@ -176,10 +181,36 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    bool onBrittle;
+    public void OnBrittleGround(bool onOrOff)
+    {
+        if (onOrOff)
+        {
+            if (rb.velocity.x != 0)
+            {
+                AudioManager.instance.Stop("Walking");
+                AudioManager.instance.Play("WalkingOnBrittleGround");
+
+                onBrittle = true;
+            }
+        }
+        else
+        {
+            if (rb.velocity.x != 0)
+            {
+                AudioManager.instance.Stop("WalkingOnBrittleGround");
+                AudioManager.instance.Play("Walking");
+
+                onBrittle = false;
+            }
+        }
+        
+    }
+
+
     public void Jump(InputAction.CallbackContext context)
     {
         if(GetComponent<PlayerItems>()._heldObject != null) { return; }
-        Debug.Log("Jump");
         if(context.performed && isGrounded)
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
@@ -230,7 +261,7 @@ public class PlayerMovement : MonoBehaviour
             isClimbing = false;
             rb.gravityScale = 1f;
             GetComponent<BoxCollider2D>().isTrigger = false;
-            GetComponent<PlayerAnimation>().SwitchingSpritesToNormal();
+            FindAnyObjectByType<PlayerAnimation>().SwitchingSpritesToNormal();
         }
     }
 }

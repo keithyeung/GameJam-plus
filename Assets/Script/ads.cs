@@ -37,6 +37,8 @@ public class PlayerMovemet : MonoBehaviour
     private CustomInput m_input = null;
 
 
+    private float walkTimer = 0;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -138,6 +140,16 @@ public class PlayerMovemet : MonoBehaviour
         else if (rb.velocity.x != 0 && moveInput.x == 0)
         {
             AudioManager.instance.Stop("Walking");
+        }
+
+        if (rb.velocity.x != 0)
+        {
+            walkTimer += Time.deltaTime;
+            if (walkTimer > 10)
+            {
+                walkTimer = 0;
+                AudioManager.instance.Play("VoiceWalking");
+            }
         }
 
         // Apply movement
