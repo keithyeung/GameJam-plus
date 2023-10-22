@@ -177,6 +177,14 @@ public class PlayerMovement : MonoBehaviour
         // Apply movement
         float moveX = moveInput.x * moveSpeed * Time.deltaTime;
         rb.velocity = new Vector2(moveX, rb.velocity.y);
+        if (moveX > 0f || moveX < 0f)
+        {
+            FindAnyObjectByType<PlayerAnimation>().WalkingAni();
+        }
+        else
+        {
+            FindAnyObjectByType<PlayerAnimation>().Idle();
+        }
 
         if (!isFacingRight && moveInput.x > 0f)
         {
