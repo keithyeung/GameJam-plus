@@ -53,7 +53,7 @@ public class WormGround : MonoBehaviour
                     return;
                 }
 
-                _worm.transform.localPosition = new Vector3(sine / 2.5f, 0, 0);
+                _worm.transform.localPosition = new Vector3(sine / 2.5f, -6.62f, 0);
 
 
                 //attack

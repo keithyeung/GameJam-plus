@@ -58121,9 +58121,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _worm: {fileID: 2885155677013482837}
-  _wormChillSpeed: 1
-  _wormCuriosSpeed: 2
-  _wormAttackSpeed: 3
+  _wormChillSpeed: 4
+  _wormCuriosSpeed: 4
+  _wormAttackSpeed: 4
   _attackDuration: 5
   _curiosDuration: 2
   _anim: {fileID: 7774661956293180210}
