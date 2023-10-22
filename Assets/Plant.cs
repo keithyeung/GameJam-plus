@@ -36,7 +36,11 @@ public class Plant : MonoBehaviour
     {
         if (collision.gameObject.tag == "Worm")
         {
-            GameManager.instance.Restart();
+            if (name == "Plant")
+            {
+                GameManager.instance.Restart();
+            }
+            gameObject.SetActive(false);
         }
     }
 }

@@ -4911,8 +4911,8 @@ Transform:
   m_GameObject: {fileID: 3090649328154568249}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.54374945, y: -3.3399494, z: 0.5958181}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2171504520219183809}
@@ -10079,7 +10079,7 @@ GameObject:
   - component: {fileID: 6507582535588291565}
   m_Layer: 7
   m_Name: Particles
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10270,14 +10270,6 @@ PrefabInstance:
     - target: {fileID: 5357571678721539608, guid: 99a48b96fc21a2e40bc5095f64d1f326, type: 3}
       propertyPath: m_Layer
       value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 5806174758877977518, guid: 99a48b96fc21a2e40bc5095f64d1f326, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5806174758877977518, guid: 99a48b96fc21a2e40bc5095f64d1f326, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5806174758877977518, guid: 99a48b96fc21a2e40bc5095f64d1f326, type: 3}
       propertyPath: m_LocalPosition.x

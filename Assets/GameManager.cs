@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class GameManager : MonoBehaviour
 {
@@ -7,7 +8,10 @@ public class GameManager : MonoBehaviour
     public GameObject player;
     public GameObject plant;
 
-    private Vector2 _respawnPos;
+    private Vector2 _playerRespawnPos;
+    private Vector2 _plantRespawnPos;
+    [SerializeField] private Vector2 _startPlayerRespawnPos;
+    [SerializeField] private Vector2 _startPlantRespawnPos;
 
     private void Awake()
     {
@@ -21,12 +25,18 @@ public class GameManager : MonoBehaviour
             instance = this;
             DontDestroyOnLoad(gameObject);
         }
+
+        _playerRespawnPos = _startPlayerRespawnPos;
+        _plantRespawnPos = _startPlantRespawnPos;
     }
+
+
 
 
     public void Checkpoint(Vector2 position)
     {
-        _respawnPos = position;
+        _playerRespawnPos = position;
+        _plantRespawnPos = position;
     }
 
 
@@ -34,6 +44,7 @@ public class GameManager : MonoBehaviour
     {
         print("death");
 
-        player.transform.position = _respawnPos;
+        player.transform.position = _playerRespawnPos;
+        plant.transform.position = _plantRespawnPos;
     }
 }
