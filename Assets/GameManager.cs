@@ -35,6 +35,8 @@ public class GameManager : MonoBehaviour
     {
         _playerRespawnPos = position;
         _plantRespawnPos = position;
+
+        AudioManager.instance.Play("Checkpoint");
     }
 
 

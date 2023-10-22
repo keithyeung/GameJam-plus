@@ -91,27 +91,55 @@ public class PlayerMovement : MonoBehaviour
             isClimbing = true;
             rb.gravityScale = 0f;
             GetComponent<CircleCollider2D>().isTrigger = true;
+
+            AudioManager.instance.Play("Climbing");
         }
         else if (context.canceled && !climbable)
         {
             isClimbing = false;
             rb.gravityScale = 1f; // Restore gravity when climbing is canceled
+            AudioManager.instance.Stop("Climbing");
+
         }
 
         if (isClimbing)
         {
+            if (rb.velocity.y == 0 && tempVec2.y != 0)
+            {
+                AudioManager.instance.Play("Climbing");
+            }
+            else if (rb.velocity.y != 0 && tempVec2.y == 0)
+            {
+                AudioManager.instance.Stop("Climbing");
+            }
+
             rb.velocity = new Vector2(rb.velocity.x, tempVec2.y * climbingSpeed);
+                        
         }
     }
 
     public void IsGrounded()
     {
         // Check if the player is grounded
-        isGrounded = Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
+        bool grounded = Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
+        if (isGrounded == false && grounded == true)
+        {
+            AudioManager.instance.Play("Landing");
+        }
+        isGrounded = grounded;
     }
 
     public void MovementAndRotation()
     {
+        if (rb.velocity.x == 0 && moveInput.x != 0)
+        {
+            AudioManager.instance.Play("Walking");
+        }
+        else if (rb.velocity.x != 0 && moveInput.x == 0)
+        {
+            AudioManager.instance.Stop("Walking");
+        }
+
         // Apply movement
         float moveX = moveInput.x * moveSpeed * Time.deltaTime;
         rb.velocity = new Vector2(moveX, rb.velocity.y);
@@ -132,6 +160,8 @@ public class PlayerMovement : MonoBehaviour
         if(context.performed && isGrounded)
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+
+            AudioManager.instance.Play("Jump");
         }
 
         if(context.canceled && rb.velocity.y > 0f)
@@ -164,6 +194,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else if (collision.gameObject.tag == "Worm")
         {
+            AudioManager.instance.Play("Death");
             GameManager.instance.Restart();
         }
     }
