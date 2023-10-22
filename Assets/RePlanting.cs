@@ -9,7 +9,7 @@ public class RePlanting : MonoBehaviour
     {
         if (collision.name == "Plant")
         {
-
+            collision.GetComponent<Animator>().Play("TurnToTree");
         }
     }
 }
