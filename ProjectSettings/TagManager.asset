@@ -10,6 +10,7 @@ TagManager:
   - Ladder
   - PickUpTrigger
   - Worm
+  - Platform
   layers:
   - Default
   - TransparentFX

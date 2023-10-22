@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1375285912505166012}
   m_Layer: 6
   m_Name: Platform
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 3458657814253677775}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 26, y: 1.25, z: 0}
+  m_LocalPosition: {x: -6.4, y: -5, z: 0}
   m_LocalScale: {x: 2.75525, y: 0.5848, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -176,7 +176,7 @@ Transform:
   m_GameObject: {fileID: 4095195498589590100}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.70710677, w: 0.7071068}
-  m_LocalPosition: {x: 28.19, y: 5.45, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -419,7 +419,7 @@ Transform:
   m_GameObject: {fileID: 8949445039905669126}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.70710677, w: 0.7071068}
-  m_LocalPosition: {x: 28.9403, y: 5.45, z: 0}
+  m_LocalPosition: {x: 0.75, y: 0, z: 0}
   m_LocalScale: {x: 1.1557406, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

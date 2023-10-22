@@ -10,8 +10,6 @@ public class GameManager : MonoBehaviour
 
     private Vector2 _playerRespawnPos;
     private Vector2 _plantRespawnPos;
-    [SerializeField] private Vector2 _startPlayerRespawnPos;
-    [SerializeField] private Vector2 _startPlantRespawnPos;
 
     private void Awake()
     {
@@ -26,8 +24,8 @@ public class GameManager : MonoBehaviour
             DontDestroyOnLoad(gameObject);
         }
 
-        _playerRespawnPos = _startPlayerRespawnPos;
-        _plantRespawnPos = _startPlantRespawnPos;
+        _playerRespawnPos = player.transform.position;
+        _plantRespawnPos = plant.transform.position;
     }
 
 
