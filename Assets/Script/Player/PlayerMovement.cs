@@ -23,6 +23,14 @@ public class PlayerMovement : MonoBehaviour
     private bool climbable;
     public bool isClimbing;
 
+    //Tutorial UI
+    public bool pickAndThrowTutorial;
+    public bool interactTutorial;
+    public GameObject pickUpText;
+    public GameObject throwText;
+    public GameObject interactText;
+    public LayerMask interactiveLayer;
+
     //Player States
     private enum playerStates
     {
@@ -52,6 +60,12 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         transform.position = GameManager.instance._playerRespawnPos;
+        interactiveLayer = 9;
+        pickAndThrowTutorial = false;
+        interactTutorial = false;
+        pickUpText.SetActive(false);
+        throwText.SetActive(false);
+        interactText.SetActive(false);
     }
 
     private void StateManager()
@@ -266,6 +280,20 @@ public class PlayerMovement : MonoBehaviour
             AudioManager.instance.Play("Death");
             GameManager.instance.Restart();
         }
+        else if (collision.gameObject.tag == "PickUpTrigger")
+        {
+            if (!pickAndThrowTutorial)
+            {
+                pickUpText.SetActive(true);
+            }
+        }
+        
+        if (collision.gameObject.name == "Button" && !interactTutorial)
+        {
+            
+            interactText.SetActive(true);    
+            
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -278,5 +306,14 @@ public class PlayerMovement : MonoBehaviour
             GetComponent<BoxCollider2D>().isTrigger = false;
             GetComponent<PlayerAnimation>().SwitchingSpritesToNormal();
         }
+        else if (collision.gameObject.tag == "PickUpTrigger")
+        {
+            pickUpText.SetActive(false);
+        }
+        else if (collision.gameObject.name == "Button")
+        {
+            interactText.SetActive(false);
+        }
+        //Debug.Log(collision.gameObject.name);
     }
 }

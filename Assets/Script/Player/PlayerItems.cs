@@ -100,6 +100,11 @@ public class PlayerItems : MonoBehaviour
         //start
         if (_heldObject)
         {
+            if (GetComponent<PlayerMovement>().pickAndThrowTutorial == false)
+            {
+                GetComponent<PlayerMovement>().pickUpText.SetActive(false);
+                GetComponent<PlayerMovement>().throwText.SetActive(true);
+            }
             if (Input.GetKeyDown(KeyCode.R))
             {
                 _aim.SetActive(true);
@@ -151,7 +156,8 @@ public class PlayerItems : MonoBehaviour
                 _heldObject = null;
 
                 _aim.SetActive(false);
-
+                GetComponent<PlayerMovement>().throwText.SetActive(false);
+                GetComponent<PlayerMovement>().pickAndThrowTutorial = true;
                 AudioManager.instance.Play("Throw");
                 AudioManager.instance.Play("VoiceThrow");
             }

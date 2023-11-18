@@ -7,6 +7,7 @@ public class PlatfomButton : Interactable
     [SerializeField] private Platform _platform;
     public override void Interact()
     {
+        FindAnyObjectByType<PlayerMovement>().interactTutorial = true;
         _platform.StartMoving();
     }
 }
